@@ -8,10 +8,12 @@ module regfile32x8 //32 8-bit registers
    input [2:0] rdAddrB,
    output [15:0] rdDataB);
 
-   reg [7:0] reg0, reg1, reg2, reg3, reg4, reg5, reg6, reg7, 
-			 reg8, reg9, reg10, reg11, reg12, reg13, reg14, reg15,
+   reg [7:0] s0, s1, //dedicated to destination registers and second source of add 
+	t0, t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, //temp registers
+	o0, //overflow registers
+	c0; //carry out condition bit
 			 
-
+/*
    assign rdDataA = rdAddrA == 0 ? reg0 :
 		    rdAddrA == 1 ? reg1 :
 		    rdAddrA == 2 ? reg2 :
@@ -37,5 +39,5 @@ module regfile32x8 //32 8-bit registers
 	     reg3 <= wrData;
 	  end
 	endcase // case (wrAddr)
-   end // always @ (posedge clk)
+   end // always @ (posedge clk)*/
 endmodule
