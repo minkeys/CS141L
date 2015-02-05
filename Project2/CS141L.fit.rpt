@@ -1,5 +1,5 @@
 Fitter report for CS141L
-Wed Feb 04 18:38:09 2015
+Wed Feb 04 19:55:14 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -59,7 +59,7 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Fitter Summary                                                                  ;
 +------------------------------------+--------------------------------------------+
-; Fitter Status                      ; Successful - Wed Feb 04 18:38:09 2015      ;
+; Fitter Status                      ; Successful - Wed Feb 04 19:55:14 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; CS141L                                     ;
 ; Top-level Entity Name              ; CS141L                                     ;
@@ -923,8 +923,8 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Info (144001): Generated suppressed messages file C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 1263 megabytes
-    Info: Processing ended: Wed Feb 04 18:38:09 2015
+    Info: Peak virtual memory: 1259 megabytes
+    Info: Processing ended: Wed Feb 04 19:55:14 2015
     Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:10
 
