@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CS141L
-Wed Feb 04 21:35:04 2015
+Fri Feb 06 01:39:44 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -10,7 +10,14 @@ Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -37,20 +44,20 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Wed Feb 04 21:35:04 2015          ;
+; Analysis & Synthesis Status        ; Successful - Fri Feb 06 01:39:44 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; CS141L                                     ;
 ; Top-level Entity Name              ; CS141L                                     ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; N/A until Partition Merge                  ;
-;     Total combinational functions  ; N/A until Partition Merge                  ;
-;     Dedicated logic registers      ; N/A until Partition Merge                  ;
-; Total registers                    ; N/A until Partition Merge                  ;
-; Total pins                         ; N/A until Partition Merge                  ;
-; Total virtual pins                 ; N/A until Partition Merge                  ;
-; Total memory bits                  ; N/A until Partition Merge                  ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                  ;
-; Total PLLs                         ; N/A until Partition Merge                  ;
+; Total logic elements               ; 9                                          ;
+;     Total combinational functions  ; 9                                          ;
+;     Dedicated logic registers      ; 8                                          ;
+; Total registers                    ; 8                                          ;
+; Total pins                         ; 23                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
 +------------------------------------+--------------------------------------------+
 
 
@@ -59,6 +66,7 @@ agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
 ; Top-level entity name                                                      ; CS141L             ; CS141L             ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
@@ -157,28 +165,158 @@ agreement for further details.
 +----------------------------+-------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                      ; Library ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------+---------+
+; regfile32x8.sv                   ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/regfile32x8.sv     ;         ;
+; program_counter.sv               ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/program_counter.sv ;         ;
+; CS141L.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.bdf         ;         ;
+; alu.sv                           ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/alu.sv             ;         ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 9           ;
+;                                             ;             ;
+; Total combinational functions               ; 9           ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 0           ;
+;     -- 3 input functions                    ; 0           ;
+;     -- <=2 input functions                  ; 9           ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 9           ;
+;     -- arithmetic mode                      ; 0           ;
+;                                             ;             ;
+; Total registers                             ; 8           ;
+;     -- Dedicated logic registers            ; 8           ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 23          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 9           ;
+; Total fan-out                               ; 73          ;
+; Average fan-out                             ; 1.16        ;
++---------------------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                  ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name          ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+--------------+
+; |CS141L                    ; 9 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |CS141L                      ; work         ;
+;    |program_counter:inst|  ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|program_counter:inst ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 8     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |CS141L|program_counter:inst|pc[7] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 23                          ;
+; cycloneiii_ff         ; 8                           ;
+;     ENA               ; 8                           ;
+; cycloneiii_lcell_comb ; 9                           ;
+;     normal            ; 9                           ;
+;         2 data inputs ; 9                           ;
+;                       ;                             ;
+; Max LUT depth         ; 1.00                        ;
+; Average LUT depth     ; 0.68                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Wed Feb 04 21:34:43 2015
+    Info: Processing started: Fri Feb 06 01:39:32 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CS141L -c CS141L
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
-Info (12021): Found 1 design units, including 1 entities, in source file cs141l.sv
-    Info (12023): Found entity 1: CS141L
 Info (12021): Found 1 design units, including 1 entities, in source file regfile32x8.sv
     Info (12023): Found entity 1: regfile32x8
-Error (10212): Verilog HDL error at CS141L.sv(19): function or task "bnot" must have 0 arguments File: C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.sv Line: 19
-Error (10212): Verilog HDL error at CS141L.sv(20): function or task "band" must have 0 arguments File: C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.sv Line: 20
-Error (10212): Verilog HDL error at CS141L.sv(21): function or task "xOr" must have 4 arguments File: C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.sv Line: 21
-Error (10212): Verilog HDL error at CS141L.sv(22): function or task "lessThan" must have 0 arguments File: C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.sv Line: 22
-Error (10212): Verilog HDL error at CS141L.sv(24): function or task "shiftRight" must have 4 arguments File: C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.sv Line: 24
-Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 5 errors, 0 warnings
-    Error: Peak virtual memory: 580 megabytes
-    Error: Processing ended: Wed Feb 04 21:35:04 2015
-    Error: Elapsed time: 00:00:21
-    Error: Total CPU time (on all processors): 00:00:51
+Info (12021): Found 1 design units, including 1 entities, in source file program_counter.sv
+    Info (12023): Found entity 1: program_counter
+Info (12021): Found 1 design units, including 1 entities, in source file cs141l.bdf
+    Info (12023): Found entity 1: CS141L
+Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: alu
+Info (12021): Found 1 design units, including 1 entities, in source file testmodule.sv
+    Info (12023): Found entity 1: testbench
+Info (12127): Elaborating entity "CS141L" for the top level hierarchy
+Warning (275009): Pin "pin_name5" not connected
+Warning (275009): Pin "pin_name6" not connected
+Warning (275009): Pin "pin_name7" not connected
+Warning (275009): Pin "pin_name8" not connected
+Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:inst"
+Info (12128): Elaborating entity "regfile32x8" for hierarchy "regfile32x8:inst4"
+Info (12128): Elaborating entity "alu" for hierarchy "alu:inst5"
+Warning (10776): Verilog HDL warning at alu.sv(34): variable overflow in static task or function add may have unintended latch behavior
+Warning (10776): Verilog HDL warning at alu.sv(85): variable notLessThanFlag in static task or function lessThan may have unintended latch behavior
+Warning (10030): Net "add.result[7]" at alu.sv(34) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "add.overflow" at alu.sv(34) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "lessThan.notLessThanFlag" at alu.sv(85) has no driver or initial value, using a default initial value '0'
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "pin_name5"
+    Warning (15610): No output dependent on input pin "pin_name6"
+    Warning (15610): No output dependent on input pin "pin_name7"
+    Warning (15610): No output dependent on input pin "pin_name8"
+Info (21057): Implemented 32 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 9 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 602 megabytes
+    Info: Processing ended: Fri Feb 06 01:39:44 2015
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:30
 
 

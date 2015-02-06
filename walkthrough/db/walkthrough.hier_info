@@ -1,0 +1,65 @@
+|walkthrough
+currentpc[0] <= program_counter:inst.pc_o[0]
+currentpc[1] <= program_counter:inst.pc_o[1]
+currentpc[2] <= program_counter:inst.pc_o[2]
+currentpc[3] <= program_counter:inst.pc_o[3]
+currentpc[4] <= program_counter:inst.pc_o[4]
+currentpc[5] <= program_counter:inst.pc_o[5]
+currentpc[6] <= program_counter:inst.pc_o[6]
+currentpc[7] <= program_counter:inst.pc_o[7]
+clk => program_counter:inst.clock
+wenable => program_counter:inst.wenable_i
+reset => program_counter:inst.reset_i
+newpc[0] => program_counter:inst.newpc_i[0]
+newpc[1] => program_counter:inst.newpc_i[1]
+newpc[2] => program_counter:inst.newpc_i[2]
+newpc[3] => program_counter:inst.newpc_i[3]
+newpc[4] => program_counter:inst.newpc_i[4]
+newpc[5] => program_counter:inst.newpc_i[5]
+newpc[6] => program_counter:inst.newpc_i[6]
+newpc[7] => program_counter:inst.newpc_i[7]
+
+
+|walkthrough|program_counter:inst
+newpc_i[0] => pcnext.DATAB
+newpc_i[1] => pcnext.DATAB
+newpc_i[2] => pcnext.DATAB
+newpc_i[3] => pcnext.DATAB
+newpc_i[4] => pcnext.DATAB
+newpc_i[5] => pcnext.DATAB
+newpc_i[6] => pcnext.DATAB
+newpc_i[7] => pcnext.DATAB
+clock => pc[0].CLK
+clock => pc[1].CLK
+clock => pc[2].CLK
+clock => pc[3].CLK
+clock => pc[4].CLK
+clock => pc[5].CLK
+clock => pc[6].CLK
+clock => pc[7].CLK
+wenable_i => pcnext.OUTPUTSELECT
+wenable_i => pcnext.OUTPUTSELECT
+wenable_i => pcnext.OUTPUTSELECT
+wenable_i => pcnext.OUTPUTSELECT
+wenable_i => pcnext.OUTPUTSELECT
+wenable_i => pcnext.OUTPUTSELECT
+wenable_i => pcnext.OUTPUTSELECT
+wenable_i => pcnext.OUTPUTSELECT
+reset_i => pcnext[7].OUTPUTSELECT
+reset_i => pcnext[6].OUTPUTSELECT
+reset_i => pcnext[5].OUTPUTSELECT
+reset_i => pcnext[4].OUTPUTSELECT
+reset_i => pcnext[3].OUTPUTSELECT
+reset_i => pcnext[2].OUTPUTSELECT
+reset_i => pcnext[1].OUTPUTSELECT
+reset_i => pcnext[0].OUTPUTSELECT
+pc_o[0] <= pc[0].DB_MAX_OUTPUT_PORT_TYPE
+pc_o[1] <= pc[1].DB_MAX_OUTPUT_PORT_TYPE
+pc_o[2] <= pc[2].DB_MAX_OUTPUT_PORT_TYPE
+pc_o[3] <= pc[3].DB_MAX_OUTPUT_PORT_TYPE
+pc_o[4] <= pc[4].DB_MAX_OUTPUT_PORT_TYPE
+pc_o[5] <= pc[5].DB_MAX_OUTPUT_PORT_TYPE
+pc_o[6] <= pc[6].DB_MAX_OUTPUT_PORT_TYPE
+pc_o[7] <= pc[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
