@@ -72,5 +72,16 @@ set_global_assignment -name BDF_FILE CS141Ldup.bdf
 set_global_assignment -name SYSTEMVERILOG_FILE testmoduledup.sv
 set_global_assignment -name BDF_FILE UNTAMPEREDCS141L.bdf
 set_global_assignment -name BDF_FILE UNTAMPERED2CS141L.bdf
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
+set_global_assignment -name BDF_FILE aluTest.bdf
+set_global_assignment -name SYSTEMVERILOG_FILE testerROM.sv
+set_global_assignment -name SYSTEMVERILOG_FILE instructionDecode.sv
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform4.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform5.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform6.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform7.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform8.vwf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform9.vwf

@@ -2,27 +2,27 @@
 # ** Warning: (vlib-34) Library already exists at "work".
 # 
 # Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
-# Start time: 09:54:57 on Feb 06,2015
+# Start time: 03:53:37 on Feb 18,2015
 # vlog -work work CS141L.vo 
 # -- Compiling module CS141L
 # 
 # Top level modules:
 # 	CS141L
-# End time: 09:54:57 on Feb 06,2015, Elapsed time: 0:00:00
+# End time: 03:53:38 on Feb 18,2015, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
-# Start time: 09:54:57 on Feb 06,2015
-# vlog -work work Waveform1.vwf.vt 
+# Start time: 03:53:38 on Feb 18,2015
+# vlog -work work Waveform9.vwf.vt 
 # -- Compiling module CS141L_vlg_sample_tst
 # -- Compiling module CS141L_vlg_check_tst
 # -- Compiling module CS141L_vlg_vec_tst
 # 
 # Top level modules:
 # 	CS141L_vlg_vec_tst
-# End time: 09:54:57 on Feb 06,2015, Elapsed time: 0:00:00
+# End time: 03:53:38 on Feb 18,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -c -do "CS141L.do" 
-# Start time: 09:54:57 on Feb 06,2015
+# Start time: 03:53:38 on Feb 18,2015
 # Loading work.CS141L_vlg_vec_tst
 # Loading work.CS141L
 # Loading cycloneive_ver.cycloneive_io_obuf
@@ -31,10 +31,12 @@
 # Loading cycloneive_ver.cycloneive_clkctrl
 # Loading cycloneive_ver.cycloneive_mux41
 # Loading cycloneive_ver.cycloneive_ena_reg
+# Loading altera_ver.dffeas
 # Loading work.CS141L_vlg_sample_tst
 # Loading work.CS141L_vlg_check_tst
+# Loading altera_ver.PRIM_GDFF_LOW
 # Simulation passed !
-# ** Note: $finish    : Waveform1.vwf.vt(550)
+# ** Note: $finish    : Waveform9.vwf.vt(593)
 #    Time: 1 us  Iteration: 0  Instance: /CS141L_vlg_vec_tst/tb_out
-# End time: 09:54:58 on Feb 06,2015, Elapsed time: 0:00:01
+# End time: 03:53:38 on Feb 18,2015, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

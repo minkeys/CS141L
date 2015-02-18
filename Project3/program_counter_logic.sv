@@ -6,6 +6,8 @@ input[7:0] startAddress,
 input branch,
 input[7:0] target,
 input taken,
+input reset,
+
 output[7:0] outputPC
 );
 
@@ -13,7 +15,7 @@ always @ (posedge clk)
 
 begin
 
-	if (start)
+	if (start || reset)
 	begin
 		outputPC <= startAddress;
 	end
@@ -29,7 +31,7 @@ begin
 	else begin
 		outputPC <= inputPC + 1;
 	end
-
+	
 end
 
 

@@ -1,7 +1,7 @@
 module instructionROM(
 input[7:0]program_counter,
 //input clk,
-output[7:0]instruction,
+input[7:0]instruction,
 output[3:0]opcode,
 output[7:0]value,
 output[3:0]rs,
@@ -15,7 +15,7 @@ output [7:0]labelValue,
 output haltFlag
 );
 
-reg [7:0] mem [255:0];
+//reg [7:0] mem [255:0];
 // to test stuff
 /*
 assign mem[0] = 8'b00000000;
@@ -38,7 +38,7 @@ assign mem[15] = 8'b11110000;
 
 always @ (posedge program_counter)
 begin
-	instruction <= mem[program_counter];
+	//instruction <= mem[program_counter];
 	
 	opcode <= instruction >> 4;				
 	value <= instruction && 8'b00001111;

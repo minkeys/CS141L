@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CS141L
-Fri Feb 06 09:34:53 2015
+Wed Feb 18 03:50:00 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -14,11 +14,17 @@ Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  9. Logic Cells Representing Combinational Loops
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: testerROM:inst
+ 15. Parameter Settings for User Entity Instance: BUSMUX:bm1
+ 16. Parameter Settings for User Entity Instance: BUSMUX:bm2
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +51,16 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Feb 06 09:34:53 2015      ;
+; Analysis & Synthesis Status        ; Successful - Wed Feb 18 03:50:00 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; CS141L                                     ;
 ; Top-level Entity Name              ; CS141L                                     ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 216                                        ;
-;     Total combinational functions  ; 216                                        ;
-;     Dedicated logic registers      ; 0                                          ;
-; Total registers                    ; 0                                          ;
-; Total pins                         ; 39                                         ;
+; Total logic elements               ; 217                                        ;
+;     Total combinational functions  ; 153                                        ;
+;     Dedicated logic registers      ; 88                                         ;
+; Total registers                    ; 88                                         ;
+; Total pins                         ; 34                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -166,83 +172,271 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                        ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                              ; Library ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------+---------+
-; CS141L.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.bdf ;         ;
-; alu.sv                           ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/alu.sv     ;         ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------+---------+
-
-
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimated Total logic elements              ; 216          ;
-;                                             ;              ;
-; Total combinational functions               ; 216          ;
-; Logic element usage by number of LUT inputs ;              ;
-;     -- 4 input functions                    ; 117          ;
-;     -- 3 input functions                    ; 78           ;
-;     -- <=2 input functions                  ; 21           ;
-;                                             ;              ;
-; Logic elements by mode                      ;              ;
-;     -- normal mode                          ; 180          ;
-;     -- arithmetic mode                      ; 36           ;
-;                                             ;              ;
-; Total registers                             ; 0            ;
-;     -- Dedicated logic registers            ; 0            ;
-;     -- I/O registers                        ; 0            ;
-;                                             ;              ;
-; I/O pins                                    ; 39           ;
-;                                             ;              ;
-; Embedded Multiplier 9-bit elements          ; 0            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; opc[0]~input ;
-; Maximum fan-out                             ; 46           ;
-; Total fan-out                               ; 799          ;
-; Average fan-out                             ; 2.72         ;
-+---------------------------------------------+--------------+
-
-
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |CS141L                    ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 39   ; 0            ; |CS141L             ; work         ;
-;    |alu:inst|              ; 216 (216)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|alu:inst    ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------+---------+
+; regfile32x8.sv                   ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project3/regfile32x8.sv           ;         ;
+; CS141L.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Minh/Documents/GitHub/CS141L/Project3/CS141L.bdf               ;         ;
+; alu.sv                           ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project3/alu.sv                   ;         ;
+; program_counter_logic.sv         ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project3/program_counter_logic.sv ;         ;
+; testerROM.sv                     ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project3/testerROM.sv             ;         ;
+; instructionDecode.sv             ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project3/instructionDecode.sv     ;         ;
+; 21mux.bdf                        ; yes             ; Megafunction                       ; c:/altera/14.1/quartus/libraries/others/maxplus2/21mux.bdf              ;         ;
+; busmux.tdf                       ; yes             ; Megafunction                       ; c:/altera/14.1/quartus/libraries/megafunctions/busmux.tdf               ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                       ; c:/altera/14.1/quartus/libraries/megafunctions/lpm_mux.inc              ;         ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                       ; c:/altera/14.1/quartus/libraries/megafunctions/lpm_mux.tdf              ;         ;
+; aglobal141.inc                   ; yes             ; Megafunction                       ; c:/altera/14.1/quartus/libraries/megafunctions/aglobal141.inc           ;         ;
+; muxlut.inc                       ; yes             ; Megafunction                       ; c:/altera/14.1/quartus/libraries/megafunctions/muxlut.inc               ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                       ; c:/altera/14.1/quartus/libraries/megafunctions/bypassff.inc             ;         ;
+; altshift.inc                     ; yes             ; Megafunction                       ; c:/altera/14.1/quartus/libraries/megafunctions/altshift.inc             ;         ;
+; db/mux_erc.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/Minh/Documents/GitHub/CS141L/Project3/db/mux_erc.tdf           ;         ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 217            ;
+;                                             ;                ;
+; Total combinational functions               ; 153            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 97             ;
+;     -- 3 input functions                    ; 40             ;
+;     -- <=2 input functions                  ; 16             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 146            ;
+;     -- arithmetic mode                      ; 7              ;
+;                                             ;                ;
+; Total registers                             ; 88             ;
+;     -- Dedicated logic registers            ; 88             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 34             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; 21mux:inst27|5 ;
+; Maximum fan-out                             ; 89             ;
+; Total fan-out                               ; 864            ;
+; Average fan-out                             ; 2.80           ;
++---------------------------------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                     ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------+
+; Compilation Hierarchy Node        ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                      ; Library Name ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------+
+; |CS141L                           ; 153 (0)           ; 88 (0)       ; 0           ; 0            ; 0       ; 0         ; 34   ; 0            ; |CS141L                                                  ; work         ;
+;    |21mux:inst27|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|21mux:inst27                                     ; work         ;
+;    |alu:inst29|                   ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|alu:inst29                                       ; work         ;
+;    |busmux:bm1|                   ; 15 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|busmux:bm1                                       ; work         ;
+;       |lpm_mux:$00000|            ; 15 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|busmux:bm1|lpm_mux:$00000                        ; work         ;
+;          |mux_erc:auto_generated| ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|busmux:bm1|lpm_mux:$00000|mux_erc:auto_generated ; work         ;
+;    |instructionDecode:inst26|     ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|instructionDecode:inst26                         ; work         ;
+;    |program_counter_logic:inst20| ; 28 (28)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|program_counter_logic:inst20                     ; work         ;
+;    |regfile32x8:inst9|            ; 56 (56)           ; 72 (72)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|regfile32x8:inst9                                ; work         ;
+;    |testerROM:inst|               ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|testerROM:inst                                   ; work         ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; alu:inst|overflow[7]                                ; alu:inst|WideOr0    ; yes                    ;
-; alu:inst|overflow[6]                                ; alu:inst|WideOr0    ; yes                    ;
-; alu:inst|overflow[5]                                ; alu:inst|WideOr0    ; yes                    ;
-; alu:inst|overflow[4]                                ; alu:inst|WideOr0    ; yes                    ;
-; alu:inst|overflow[3]                                ; alu:inst|WideOr0    ; yes                    ;
-; alu:inst|overflow[2]                                ; alu:inst|WideOr0    ; yes                    ;
-; alu:inst|overflow[1]                                ; alu:inst|WideOr0    ; yes                    ;
-; alu:inst|overflow[0]                                ; alu:inst|WideOr0    ; yes                    ;
-; alu:inst|result[7]                                  ; alu:inst|Mux17      ; yes                    ;
-; alu:inst|result[6]                                  ; alu:inst|Mux17      ; yes                    ;
-; alu:inst|result[5]                                  ; alu:inst|Mux17      ; yes                    ;
-; alu:inst|result[4]                                  ; alu:inst|Mux17      ; yes                    ;
-; alu:inst|result[3]                                  ; alu:inst|Mux17      ; yes                    ;
-; alu:inst|result[2]                                  ; alu:inst|Mux17      ; yes                    ;
-; alu:inst|result[1]                                  ; alu:inst|Mux17      ; yes                    ;
-; alu:inst|result[0]                                  ; alu:inst|Mux17      ; yes                    ;
-; Number of user-specified and inferred latches = 16  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
++----------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                            ;
++-----------------------------------------------------+---------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal             ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------------+------------------------+
+; instructionDecode:inst26|rd[1]                      ; instructionDecode:inst26|rd     ; yes                    ;
+; instructionDecode:inst26|rd[0]                      ; instructionDecode:inst26|rd     ; yes                    ;
+; instructionDecode:inst26|rd[2]                      ; instructionDecode:inst26|rd     ; yes                    ;
+; instructionDecode:inst26|labelValue[7]              ; instructionDecode:inst26|Equal0 ; yes                    ;
+; alu:inst29|result[7]                                ; alu:inst29|Mux17                ; yes                    ;
+; instructionDecode:inst26|labelValue[6]              ; instructionDecode:inst26|Equal0 ; yes                    ;
+; alu:inst29|result[6]                                ; alu:inst29|Mux17                ; yes                    ;
+; instructionDecode:inst26|labelValue[5]              ; instructionDecode:inst26|Equal0 ; yes                    ;
+; alu:inst29|result[5]                                ; alu:inst29|Mux17                ; yes                    ;
+; instructionDecode:inst26|labelValue[4]              ; instructionDecode:inst26|Equal0 ; yes                    ;
+; alu:inst29|result[4]                                ; alu:inst29|Mux17                ; yes                    ;
+; instructionDecode:inst26|labelValue[3]              ; instructionDecode:inst26|Equal0 ; yes                    ;
+; alu:inst29|result[3]                                ; alu:inst29|Mux17                ; yes                    ;
+; instructionDecode:inst26|labelValue[2]              ; instructionDecode:inst26|Equal0 ; yes                    ;
+; alu:inst29|result[2]                                ; alu:inst29|Mux17                ; yes                    ;
+; instructionDecode:inst26|labelValue[1]              ; instructionDecode:inst26|Equal0 ; yes                    ;
+; alu:inst29|result[1]                                ; alu:inst29|Mux17                ; yes                    ;
+; instructionDecode:inst26|labelValue[0]              ; instructionDecode:inst26|Equal0 ; yes                    ;
+; alu:inst29|result[0]                                ; alu:inst29|Mux17                ; yes                    ;
+; Number of user-specified and inferred latches = 19  ;                                 ;                        ;
++-----------------------------------------------------+---------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; instructionDecode:inst26|WideNor0~0                    ;   ;
+; instructionDecode:inst26|labelPassFlagOut~0            ;   ;
+; instructionDecode:inst26|WideNor0~1                    ;   ;
+; Number of logic cells representing combinational loops ; 3 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; regfile32x8:inst9|regfile[15][0]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][1]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][2]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][3]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][4]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][5]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][6]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][7]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][0]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][1]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][2]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][3]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][4]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][5]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][6]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][7]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][0]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][1]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][2]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][3]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][4]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][5]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][6]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][7]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][0]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][1]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][2]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][3]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][4]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][5]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][6]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][7]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][0]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][1]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][2]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][3]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][4]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][5]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][6]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][7]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][0]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][1]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][2]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][3]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][4]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][5]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][6]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][7]        ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][0]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][1]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][2]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][3]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][4]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][5]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][6]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][7]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][0]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][1]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][2]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][3]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][4]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][5]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][6]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][7]         ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[7][0]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[7][1]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[7][2]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[7][3]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[7][4]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[7][5]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[7][6]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[7][7]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[6][0]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[6][1]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[6][2]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[6][3]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[6][4]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[6][5]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[6][6]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[6][7]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[5][0]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[5][1]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[5][2]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[5][3]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[5][4]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[5][5]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[5][6]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[5][7]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[4][0]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[4][1]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[4][2]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[4][3]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[4][4]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[4][5]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[4][6]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[4][7]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[3][0]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[3][1]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[3][2]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[3][3]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[3][4]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[3][5]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[3][6]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[3][7]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[2][0]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[2][1]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[2][2]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[2][3]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[2][4]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[2][5]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[2][6]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[2][7]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][0]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][1]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][2]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][3]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][4]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][5]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][6]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][7]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][0]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][1]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][2]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][3]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][4]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][5]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][6]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][7]         ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regA[1..7]            ; Merged with regfile32x8:inst9|regA[0]       ;
+; regfile32x8:inst9|regB[1..7]            ; Merged with regfile32x8:inst9|regB[0]       ;
+; regfile32x8:inst9|regB[0]               ; Stuck at GND due to stuck port data_in      ;
+; regfile32x8:inst9|regA[0]               ; Stuck at GND due to stuck port data_in      ;
+; Total Number of Removed Registers = 144 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                               ;
++---------------------------------+--------------------------------+----------------------------------------+
+; Register name                   ; Reason for Removal             ; Registers Removed due to This Register ;
++---------------------------------+--------------------------------+----------------------------------------+
+; regfile32x8:inst9|regfile[7][0] ; Stuck at GND                   ; regfile32x8:inst9|regB[0]              ;
+;                                 ; due to stuck port clock_enable ;                                        ;
++---------------------------------+--------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -250,27 +444,54 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 88    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 8     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 80    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CS141L|alu:inst|Mux3      ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CS141L|alu:inst|Mux4      ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |CS141L|alu:inst|Mux6      ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |CS141L|alu:inst|Mux12     ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 14 LEs               ; 6 LEs                  ; No         ; |CS141L|alu:inst|Mux14     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CS141L|program_counter_logic:inst20|outputPC[7] ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |CS141L|alu:inst29|Mux9                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: testerROM:inst ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; ADDR_WIDTH     ; 8     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:bm1 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; WIDTH          ; 8     ; Untyped                        ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:bm2 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; WIDTH          ; 8     ; Untyped                        ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -278,19 +499,23 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 39                          ;
-; cycloneiii_lcell_comb ; 216                         ;
-;     arith             ; 36                          ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 28                          ;
-;     normal            ; 180                         ;
+; boundary_port         ; 34                          ;
+; cycloneiii_ff         ; 88                          ;
+;     ENA               ; 72                          ;
+;     ENA SLD           ; 8                           ;
+;     plain             ; 8                           ;
+; cycloneiii_lcell_comb ; 154                         ;
+;     arith             ; 7                           ;
+;         2 data inputs ; 7                           ;
+;     normal            ; 147                         ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 50                          ;
-;         4 data inputs ; 117                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 40                          ;
+;         4 data inputs ; 97                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 6.36                        ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 3.94                        ;
 +-----------------------+-----------------------------+
 
 
@@ -299,7 +524,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -309,7 +534,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Fri Feb 06 09:34:35 2015
+    Info: Processing started: Wed Feb 18 03:49:44 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CS141L -c CS141L
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file regfile32x8.sv
@@ -337,6 +562,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file untampe
     Info (12023): Found entity 1: UNTAMPEREDCS141L
 Info (12021): Found 1 design units, including 1 entities, in source file untampered2cs141l.bdf
     Info (12023): Found entity 1: UNTAMPERED2CS141L
+Info (12021): Found 1 design units, including 1 entities, in source file alutest.bdf
+    Info (12023): Found entity 1: aluTest
+Info (12021): Found 1 design units, including 1 entities, in source file testerrom.sv
+    Info (12023): Found entity 1: testerROM
+Info (12021): Found 1 design units, including 1 entities, in source file instructiondecode.sv
+    Info (12023): Found entity 1: instructionDecode
 Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(62): created implicit net for "SYNTHESIZED_WIRE_26"
 Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(63): created implicit net for "SYNTHESIZED_WIRE_1"
 Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(64): created implicit net for "SYNTHESIZED_WIRE_2"
@@ -365,10 +596,60 @@ Warning (10236): Verilog HDL Implicit Net warning at testmoduledup.sv(89): creat
 Warning (10236): Verilog HDL Implicit Net warning at testmoduledup.sv(90): created implicit net for "SYNTHESIZED_WIRE_7"
 Warning (10236): Verilog HDL Implicit Net warning at testmoduledup.sv(91): created implicit net for "res"
 Info (12127): Elaborating entity "CS141L" for the top level hierarchy
-Warning (275085): Found inconsistent dimensions for element "ovfl"
-Warning (275080): Converted elements in bus name "ovfl" using legacy naming rules. Make any assignments on the new names, not on the original names.
-    Warning (275081): Converted element name(s) from "ovfl[7..0]" to "ovfl7..0"
-Info (12128): Elaborating entity "alu" for hierarchy "alu:inst"
+Info (12128): Elaborating entity "21mux" for hierarchy "21mux:inst27"
+Info (12130): Elaborated megafunction instantiation "21mux:inst27"
+Info (12128): Elaborating entity "instructionDecode" for hierarchy "instructionDecode:inst26"
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(34): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10230): Verilog HDL assignment warning at instructionDecode.sv(34): truncated value with size 8 to match size of target (4)
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(35): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(37): variable "labelPassFlag" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(39): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(60): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(61): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(62): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(63): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(64): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(65): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(66): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(67): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(68): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(69): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(70): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(71): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(72): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(73): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(74): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at instructionDecode.sv(23): inferring latch(es) for variable "rs", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at instructionDecode.sv(23): inferring latch(es) for variable "rt", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at instructionDecode.sv(23): inferring latch(es) for variable "rd", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at instructionDecode.sv(23): inferring latch(es) for variable "labelValue", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "labelValue[0]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "labelValue[1]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "labelValue[2]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "labelValue[3]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "labelValue[4]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "labelValue[5]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "labelValue[6]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "labelValue[7]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rd[0]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rd[1]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rd[2]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rd[3]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rt[0]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rt[1]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rt[2]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rt[3]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rs[0]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rs[1]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rs[2]" at instructionDecode.sv(23)
+Info (10041): Inferred latch for "rs[3]" at instructionDecode.sv(23)
+Info (12128): Elaborating entity "testerROM" for hierarchy "testerROM:inst"
+Warning (10030): Net "rom.data_a" at testerROM.sv(14) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "rom.waddr_a" at testerROM.sv(14) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "rom.we_a" at testerROM.sv(14) has no driver or initial value, using a default initial value '0'
+Info (12128): Elaborating entity "program_counter_logic" for hierarchy "program_counter_logic:inst20"
+Warning (10230): Verilog HDL assignment warning at program_counter_logic.sv(32): truncated value with size 32 to match size of target (8)
+Info (12128): Elaborating entity "alu" for hierarchy "alu:inst29"
 Warning (10776): Verilog HDL warning at alu.sv(49): variable overflow in static task or function add may have unintended latch behavior
 Warning (10776): Verilog HDL warning at alu.sv(100): variable lessThanFlag in static task or function lessThan may have unintended latch behavior
 Warning (10270): Verilog HDL Case Statement warning at alu.sv(17): incomplete case statement has no default case item
@@ -393,48 +674,65 @@ Info (10041): Inferred latch for "result[4]" at alu.sv(11)
 Info (10041): Inferred latch for "result[5]" at alu.sv(11)
 Info (10041): Inferred latch for "result[6]" at alu.sv(11)
 Info (10041): Inferred latch for "result[7]" at alu.sv(11)
-Warning (13012): Latch alu:inst|overflow[7] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|overflow[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|overflow[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|overflow[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|overflow[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|overflow[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|overflow[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|overflow[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|result[7] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
-Warning (13012): Latch alu:inst|result[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
-Warning (13012): Latch alu:inst|result[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[2]
-Warning (13012): Latch alu:inst|result[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
-Warning (13012): Latch alu:inst|result[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|result[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
-Warning (13012): Latch alu:inst|result[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
-Warning (13012): Latch alu:inst|result[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
+Info (12128): Elaborating entity "regfile32x8" for hierarchy "regfile32x8:inst9"
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:bm1"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:bm1"
+Info (12133): Instantiated megafunction "BUSMUX:bm1" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "8"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:bm1|lpm_mux:$00000"
+Info (12131): Elaborated megafunction instantiation "BUSMUX:bm1|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:bm1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_erc.tdf
+    Info (12023): Found entity 1: mux_erc
+Info (12128): Elaborating entity "mux_erc" for hierarchy "BUSMUX:bm1|lpm_mux:$00000|mux_erc:auto_generated"
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer instructionDecode:inst26|opcode~0
+    Warning (19017): Found clock multiplexer instructionDecode:inst26|opcode[1]
+    Warning (19017): Found clock multiplexer instructionDecode:inst26|opcode[2]
+    Warning (19017): Found clock multiplexer instructionDecode:inst26|opcode~1
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer 21mux:inst27|5~0
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "regfile32x8:inst9|labelfile" is uninferred due to inappropriate RAM size
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Minh/Documents/GitHub/CS141L/Project3/db/CS141L.ram0_testerROM_61eacb6.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer testerROM:inst|rom~0
+    Warning (19017): Found clock multiplexer instructionDecode:inst26|Selector1~0
+    Warning (19017): Found clock multiplexer instructionDecode:inst26|Selector2~0
+    Warning (19017): Found clock multiplexer testerROM:inst|rom~1
+    Warning (19017): Found clock multiplexer testerROM:inst|rom~2
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "alu:inst29|result[3]" merged with LATCH primitive "alu:inst29|result[7]"
+    Info (13026): Duplicate LATCH primitive "alu:inst29|result[4]" merged with LATCH primitive "alu:inst29|result[7]"
+    Info (13026): Duplicate LATCH primitive "alu:inst29|result[5]" merged with LATCH primitive "alu:inst29|result[7]"
+    Info (13026): Duplicate LATCH primitive "alu:inst29|result[6]" merged with LATCH primitive "alu:inst29|result[7]"
+Warning (13012): Latch instructionDecode:inst26|rd[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|WideNor0~0
+Warning (13012): Latch instructionDecode:inst26|rd[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|WideNor0~1
+Warning (13012): Latch instructionDecode:inst26|rd[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|WideNor0~1
+Warning (13012): Latch alu:inst29|result[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|opcode~0
+Warning (13012): Latch alu:inst29|result[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|opcode~0
+Warning (13012): Latch alu:inst29|result[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|opcode~0
+Warning (13012): Latch alu:inst29|result[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|opcode~0
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "instruction_value[3]" is stuck at GND
+    Warning (13410): Pin "instruction_value[2]" is stuck at GND
+Info (17049): 64 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 255 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 21 input pins
-    Info (21059): Implemented 18 output pins
-    Info (21061): Implemented 216 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 71 warnings
-    Info: Peak virtual memory: 603 megabytes
-    Info: Processing ended: Fri Feb 06 09:34:54 2015
-    Info: Elapsed time: 00:00:19
+Info (21057): Implemented 259 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 23 output pins
+    Info (21061): Implemented 225 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 95 warnings
+    Info: Peak virtual memory: 605 megabytes
+    Info: Processing ended: Wed Feb 18 03:50:00 2015
+    Info: Elapsed time: 00:00:16
     Info: Total CPU time (on all processors): 00:00:38
 
 

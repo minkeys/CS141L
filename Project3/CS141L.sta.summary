@@ -2,40 +2,76 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'opc[0]'
-Slack : -2.618
-TNS   : -30.151
+Type  : Slow 1200mV 85C Model Setup 'testerROM:inst|addr_reg[0]'
+Slack : -50.585
+TNS   : -4011.125
 
-Type  : Slow 1200mV 85C Model Hold 'opc[0]'
-Slack : -0.399
-TNS   : -2.951
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -49.985
+TNS   : -3693.595
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'opc[0]'
+Type  : Slow 1200mV 85C Model Hold 'testerROM:inst|addr_reg[0]'
+Slack : -22.776
+TNS   : -1465.285
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : -3.158
+TNS   : -117.884
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'testerROM:inst|addr_reg[0]'
+Slack : -19.453
+TNS   : -11662.013
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -3.000
+TNS   : -116.080
 
-Type  : Slow 1200mV 0C Model Setup 'opc[0]'
-Slack : -2.374
-TNS   : -27.409
+Type  : Slow 1200mV 0C Model Setup 'testerROM:inst|addr_reg[0]'
+Slack : -47.089
+TNS   : -3703.897
 
-Type  : Slow 1200mV 0C Model Hold 'opc[0]'
-Slack : -0.428
-TNS   : -2.979
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -46.061
+TNS   : -3403.490
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'opc[0]'
+Type  : Slow 1200mV 0C Model Hold 'testerROM:inst|addr_reg[0]'
+Slack : -21.026
+TNS   : -1364.922
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -2.941
+TNS   : -112.341
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'testerROM:inst|addr_reg[0]'
+Slack : -18.041
+TNS   : -10648.462
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -3.000
+TNS   : -116.080
 
-Type  : Fast 1200mV 0C Model Setup 'opc[0]'
-Slack : -1.404
-TNS   : -15.700
+Type  : Fast 1200mV 0C Model Setup 'testerROM:inst|addr_reg[0]'
+Slack : -25.622
+TNS   : -1987.800
 
-Type  : Fast 1200mV 0C Model Hold 'opc[0]'
-Slack : -0.347
-TNS   : -3.075
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -25.047
+TNS   : -1827.167
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'opc[0]'
+Type  : Fast 1200mV 0C Model Hold 'testerROM:inst|addr_reg[0]'
+Slack : -11.197
+TNS   : -701.246
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : -1.647
+TNS   : -64.689
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'testerROM:inst|addr_reg[0]'
+Slack : -10.015
+TNS   : -5769.464
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -3.466
+TNS   : -102.614
 
 ------------------------------------------------------------
