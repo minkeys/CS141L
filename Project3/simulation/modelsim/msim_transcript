@@ -1,0 +1,25 @@
+# Reading C:/altera/14.1/modelsim_ase/tcl/vsim/pref.tcl
+# do CS141L_run_msim_gate_systemverilog.do
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Model Technology ModelSim PE vmap 10.3c Lib Mapping Utility 2014.09 Sep 20 2014
+# vmap -modelsim_quiet work gate_work 
+# Copying C:/altera/14.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:/altera/14.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -sv -work work +incdir+. {CS141L.svo}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 01:18:18 on Feb 06,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+." CS141L.svo 
+# -- Compiling module CS141L
+# 
+# Top level modules:
+# 	CS141L
+# End time: 01:18:18 on Feb 06,2015, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
