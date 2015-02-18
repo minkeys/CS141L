@@ -1,5 +1,5 @@
 Flow report for CS141L
-Fri Feb 06 01:40:18 2015
+Fri Feb 06 09:54:55 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Fri Feb 06 01:40:18 2015      ;
+; Flow Status                        ; Successful - Fri Feb 06 09:54:55 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; CS141L                                     ;
 ; Top-level Entity Name              ; CS141L                                     ;
 ; Family                             ; Cyclone IV E                               ;
 ; Device                             ; EP4CE115F29C7                              ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 9 / 114,480 ( < 1 % )                      ;
-;     Total combinational functions  ; 9 / 114,480 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 8 / 114,480 ( < 1 % )                      ;
-; Total registers                    ; 8                                          ;
-; Total pins                         ; 23 / 529 ( 4 % )                           ;
+; Total logic elements               ; 216 / 114,480 ( < 1 % )                    ;
+;     Total combinational functions  ; 216 / 114,480 ( < 1 % )                    ;
+;     Dedicated logic registers      ; 0 / 114,480 ( 0 % )                        ;
+; Total registers                    ; 0                                          ;
+; Total pins                         ; 39 / 529 ( 7 % )                           ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                      ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                            ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/06/2015 01:39:32 ;
+; Start date & time ; 02/06/2015 09:34:36 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; CS141L              ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 128527096592600.142321557209924       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 128527096592600.142324407607128       ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                     ; --            ; --          ; eda_simulation ;
 ; EDA_RUN_TOOL_AUTOMATICALLY          ; Off                                   ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)       ; <None>        ; --          ; --             ;
@@ -97,12 +97,18 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 591 MB              ; 00:00:30                           ;
-; Fitter                    ; 00:00:15     ; 1.5                     ; 1462 MB             ; 00:00:20                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 566 MB              ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 719 MB              ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 528 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:37     ; --                      ; --                  ; 00:00:59                           ;
+; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 592 MB              ; 00:00:38                           ;
+; Fitter                    ; 00:00:29     ; 1.4                     ; 1503 MB             ; 00:00:39                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 561 MB              ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 723 MB              ; 00:00:05                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 536 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 523 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 527 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 523 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 527 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 523 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 527 MB              ; 00:00:01                           ;
+; Total                     ; 00:01:08     ; --                      ; --                  ; 00:01:37                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -116,6 +122,12 @@ agreement for further details.
 ; Assembler                 ; Minh-PC          ; Windows 7 ; 6.1        ; x86_64         ;
 ; TimeQuest Timing Analyzer ; Minh-PC          ; Windows 7 ; 6.1        ; x86_64         ;
 ; EDA Netlist Writer        ; Minh-PC          ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; Minh-PC          ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; Minh-PC          ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; Minh-PC          ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; Minh-PC          ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; Minh-PC          ; Windows 7 ; 6.1        ; x86_64         ;
+; EDA Netlist Writer        ; Minh-PC          ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
@@ -127,6 +139,12 @@ quartus_fit --read_settings_files=off --write_settings_files=off CS141L -c CS141
 quartus_asm --read_settings_files=off --write_settings_files=off CS141L -c CS141L
 quartus_sta CS141L -c CS141L
 quartus_eda --read_settings_files=off --write_settings_files=off CS141L -c CS141L
+quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog --write_settings_files=off CS141L -c CS141L --vector_source=C:/Users/Minh/Documents/GitHub/CS141L/Project2/Waveform1.vwf --testbench_file=C:/Users/Minh/Documents/GitHub/CS141L/Project2/simulation/qsim/Waveform1.vwf.vt
+quartus_eda --write_settings_files=off --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=C:/Users/Minh/Documents/GitHub/CS141L/Project2/simulation/qsim/ CS141L -c CS141L
+quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog --write_settings_files=off CS141L -c CS141L --vector_source=C:/Users/Minh/Documents/GitHub/CS141L/Project2/Waveform1.vwf --testbench_file=C:/Users/Minh/Documents/GitHub/CS141L/Project2/simulation/qsim/Waveform1.vwf.vt
+quartus_eda --write_settings_files=off --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=C:/Users/Minh/Documents/GitHub/CS141L/Project2/simulation/qsim/ CS141L -c CS141L
+quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog --write_settings_files=off CS141L -c CS141L --vector_source=C:/Users/Minh/Documents/GitHub/CS141L/Project2/Waveform1.vwf --testbench_file=C:/Users/Minh/Documents/GitHub/CS141L/Project2/simulation/qsim/Waveform1.vwf.vt
+quartus_eda --write_settings_files=off --functional=on --flatten_buses=off --simulation=on --tool=modelsim_oem --format=verilog --output_directory=C:/Users/Minh/Documents/GitHub/CS141L/Project2/simulation/qsim/ CS141L -c CS141L
 
 
 

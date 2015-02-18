@@ -15,44 +15,66 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 14.1.0 Build 186 12/03/2014 SJ Web Edition"
-// CREATED		"Fri Feb 06 01:09:38 2015"
+// CREATED		"Fri Feb 06 09:31:51 2015"
 
 module CS141L(
-	pin_name2,
-	pin_name3,
-	pin_name4,
-	pin_name5,
-	pin_name6,
-	pin_name7,
-	pin_name8,
-	newpc,
-	pcout
+	signfl,
+	inp0,
+	inp1,
+	opc,
+	ovfl,
+	ltfl,
+	ovfl7,
+	ovfl6,
+	ovfl5,
+	ovfl4,
+	ovfl3,
+	ovfl2,
+	ovfl1,
+	ovfl0,
+	res
 );
 
 
-input wire	pin_name2;
-input wire	pin_name3;
-input wire	pin_name4;
-input wire	pin_name5;
-input wire	pin_name6;
-input wire	pin_name7;
-input wire	pin_name8;
-input wire	[7:0] newpc;
-output wire	[7:0] pcout;
+input wire	signfl;
+input wire	[7:0] inp0;
+input wire	[7:0] inp1;
+input wire	[3:0] opc;
+output wire	ovfl;
+output wire	ltfl;
+output wire	ovfl7;
+output wire	ovfl6;
+output wire	ovfl5;
+output wire	ovfl4;
+output wire	ovfl3;
+output wire	ovfl2;
+output wire	ovfl1;
+output wire	ovfl0;
+output wire	[7:0] res;
+
+wire	[7:0] SYNTHESIZED_WIRE_7;
+
+assign	ovfl7 = SYNTHESIZED_WIRE_7[7];
+assign	ovfl6 = SYNTHESIZED_WIRE_7[6];
+assign	ovfl5 = SYNTHESIZED_WIRE_7[5];
+assign	ovfl4 = SYNTHESIZED_WIRE_7[4];
+assign	ovfl3 = SYNTHESIZED_WIRE_7[3];
+assign	ovfl2 = SYNTHESIZED_WIRE_7[2];
+assign	ovfl1 = SYNTHESIZED_WIRE_7[1];
+assign	ovfl0 = SYNTHESIZED_WIRE_7[0];
 
 
 
 
-
-
-program_counter	b2v_inst(
-	.clock(pin_name2),
-	.wenable_i(pin_name3),
-	.reset_i(pin_name4),
-	.newpc_i(newpc),
-	.pc_o(pcout));
-
-
+alu	b2v_inst(
+	.signFlag(signfl),
+	.input0(inp0),
+	.input1(inp1),
+	.opcode(opc),
+	.overflowFlag(ovfl),
+	.lessThanFlag(ltfl),
+	.overflow(SYNTHESIZED_WIRE_7),
+	.result(res));
 
 
 endmodule

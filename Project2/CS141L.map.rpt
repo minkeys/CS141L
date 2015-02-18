@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CS141L
-Fri Feb 06 01:39:44 2015
+Fri Feb 06 09:34:53 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -13,11 +13,12 @@ Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +45,16 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Feb 06 01:39:44 2015      ;
+; Analysis & Synthesis Status        ; Successful - Fri Feb 06 09:34:53 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; CS141L                                     ;
 ; Top-level Entity Name              ; CS141L                                     ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 9                                          ;
-;     Total combinational functions  ; 9                                          ;
-;     Dedicated logic registers      ; 8                                          ;
-; Total registers                    ; 8                                          ;
-; Total pins                         ; 23                                         ;
+; Total logic elements               ; 216                                        ;
+;     Total combinational functions  ; 216                                        ;
+;     Dedicated logic registers      ; 0                                          ;
+; Total registers                    ; 0                                          ;
+; Total pins                         ; 39                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -165,59 +166,83 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                ;
-+----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                      ; Library ;
-+----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------+---------+
-; regfile32x8.sv                   ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/regfile32x8.sv     ;         ;
-; program_counter.sv               ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/program_counter.sv ;         ;
-; CS141L.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.bdf         ;         ;
-; alu.sv                           ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/alu.sv             ;         ;
-+----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                              ; Library ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------+---------+
+; CS141L.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/CS141L.bdf ;         ;
+; alu.sv                           ; yes             ; User SystemVerilog HDL File        ; C:/Users/Minh/Documents/GitHub/CS141L/Project2/alu.sv     ;         ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 9           ;
-;                                             ;             ;
-; Total combinational functions               ; 9           ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 0           ;
-;     -- 3 input functions                    ; 0           ;
-;     -- <=2 input functions                  ; 9           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 9           ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 8           ;
-;     -- Dedicated logic registers            ; 8           ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 23          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; reset~input ;
-; Maximum fan-out                             ; 9           ;
-; Total fan-out                               ; 73          ;
-; Average fan-out                             ; 1.16        ;
-+---------------------------------------------+-------------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 216          ;
+;                                             ;              ;
+; Total combinational functions               ; 216          ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 117          ;
+;     -- 3 input functions                    ; 78           ;
+;     -- <=2 input functions                  ; 21           ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 180          ;
+;     -- arithmetic mode                      ; 36           ;
+;                                             ;              ;
+; Total registers                             ; 0            ;
+;     -- Dedicated logic registers            ; 0            ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 39           ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; opc[0]~input ;
+; Maximum fan-out                             ; 46           ;
+; Total fan-out                               ; 799          ;
+; Average fan-out                             ; 2.72         ;
++---------------------------------------------+--------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                  ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name          ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+--------------+
-; |CS141L                    ; 9 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |CS141L                      ; work         ;
-;    |program_counter:inst|  ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|program_counter:inst ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |CS141L                    ; 216 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 39   ; 0            ; |CS141L             ; work         ;
+;    |alu:inst|              ; 216 (216)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|alu:inst    ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; alu:inst|overflow[7]                                ; alu:inst|WideOr0    ; yes                    ;
+; alu:inst|overflow[6]                                ; alu:inst|WideOr0    ; yes                    ;
+; alu:inst|overflow[5]                                ; alu:inst|WideOr0    ; yes                    ;
+; alu:inst|overflow[4]                                ; alu:inst|WideOr0    ; yes                    ;
+; alu:inst|overflow[3]                                ; alu:inst|WideOr0    ; yes                    ;
+; alu:inst|overflow[2]                                ; alu:inst|WideOr0    ; yes                    ;
+; alu:inst|overflow[1]                                ; alu:inst|WideOr0    ; yes                    ;
+; alu:inst|overflow[0]                                ; alu:inst|WideOr0    ; yes                    ;
+; alu:inst|result[7]                                  ; alu:inst|Mux17      ; yes                    ;
+; alu:inst|result[6]                                  ; alu:inst|Mux17      ; yes                    ;
+; alu:inst|result[5]                                  ; alu:inst|Mux17      ; yes                    ;
+; alu:inst|result[4]                                  ; alu:inst|Mux17      ; yes                    ;
+; alu:inst|result[3]                                  ; alu:inst|Mux17      ; yes                    ;
+; alu:inst|result[2]                                  ; alu:inst|Mux17      ; yes                    ;
+; alu:inst|result[1]                                  ; alu:inst|Mux17      ; yes                    ;
+; alu:inst|result[0]                                  ; alu:inst|Mux17      ; yes                    ;
+; Number of user-specified and inferred latches = 16  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -225,23 +250,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 8     ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |CS141L|program_counter:inst|pc[7] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CS141L|alu:inst|Mux3      ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |CS141L|alu:inst|Mux4      ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |CS141L|alu:inst|Mux6      ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |CS141L|alu:inst|Mux12     ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 14 LEs               ; 6 LEs                  ; No         ; |CS141L|alu:inst|Mux14     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-----------------------------------------------------+
@@ -249,15 +278,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 23                          ;
-; cycloneiii_ff         ; 8                           ;
-;     ENA               ; 8                           ;
-; cycloneiii_lcell_comb ; 9                           ;
-;     normal            ; 9                           ;
-;         2 data inputs ; 9                           ;
+; boundary_port         ; 39                          ;
+; cycloneiii_lcell_comb ; 216                         ;
+;     arith             ; 36                          ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 28                          ;
+;     normal            ; 180                         ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 12                          ;
+;         3 data inputs ; 50                          ;
+;         4 data inputs ; 117                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.68                        ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 6.36                        ;
 +-----------------------+-----------------------------+
 
 
@@ -266,7 +299,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -276,7 +309,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Fri Feb 06 01:39:32 2015
+    Info: Processing started: Fri Feb 06 09:34:35 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CS141L -c CS141L
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file regfile32x8.sv
@@ -285,38 +318,123 @@ Info (12021): Found 1 design units, including 1 entities, in source file program
     Info (12023): Found entity 1: program_counter
 Info (12021): Found 1 design units, including 1 entities, in source file cs141l.bdf
     Info (12023): Found entity 1: CS141L
+Warning (10263): Verilog HDL Event Control warning at alu.sv(11): event expression contains "|" or "||"
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
     Info (12023): Found entity 1: alu
 Info (12021): Found 1 design units, including 1 entities, in source file testmodule.sv
     Info (12023): Found entity 1: testbench
+Info (12021): Found 1 design units, including 1 entities, in source file instructionrom.sv
+    Info (12023): Found entity 1: instructionROM
+Info (12021): Found 1 design units, including 1 entities, in source file testpc.sv
+    Info (12023): Found entity 1: testPC
+Info (12021): Found 1 design units, including 1 entities, in source file program_counter_logic.sv
+    Info (12023): Found entity 1: program_counter_logic
+Info (12021): Found 1 design units, including 1 entities, in source file cs141ldup.bdf
+    Info (12023): Found entity 1: CS141Ldup
+Info (12021): Found 1 design units, including 1 entities, in source file testmoduledup.sv
+    Info (12023): Found entity 1: testbenchdup
+Info (12021): Found 1 design units, including 1 entities, in source file untamperedcs141l.bdf
+    Info (12023): Found entity 1: UNTAMPEREDCS141L
+Info (12021): Found 1 design units, including 1 entities, in source file untampered2cs141l.bdf
+    Info (12023): Found entity 1: UNTAMPERED2CS141L
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(62): created implicit net for "SYNTHESIZED_WIRE_26"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(63): created implicit net for "SYNTHESIZED_WIRE_1"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(64): created implicit net for "SYNTHESIZED_WIRE_2"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(65): created implicit net for "SYNTHESIZED_WIRE_16"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(69): created implicit net for "SYNTHESIZED_WIRE_3"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(70): created implicit net for "SYNTHESIZED_WIRE_4"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(71): created implicit net for "SYNTHESIZED_WIRE_5"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(72): created implicit net for "SYNTHESIZED_WIRE_10"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(76): created implicit net for "SYNTHESIZED_WIRE_27"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(77): created implicit net for "SYNTHESIZED_WIRE_22"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(80): created implicit net for "SYNTHESIZED_WIRE_8"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(81): created implicit net for "SYNTHESIZED_WIRE_7"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(82): created implicit net for "instruction"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(84): created implicit net for "SYNTHESIZED_WIRE_11"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(85): created implicit net for "SYNTHESIZED_WIRE_18"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(86): created implicit net for "SYNTHESIZED_WIRE_19"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(87): created implicit net for "SYNTHESIZED_WIRE_20"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(95): created implicit net for "SYNTHESIZED_WIRE_28"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(100): created implicit net for "SYNTHESIZED_WIRE_9"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(103): created implicit net for "SYNTHESIZED_WIRE_15"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(104): created implicit net for "SYNTHESIZED_WIRE_23"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(105): created implicit net for "SYNTHESIZED_WIRE_17"
+Warning (10236): Verilog HDL Implicit Net warning at testmodule.sv(119): created implicit net for "SYNTHESIZED_WIRE_25"
+Warning (10236): Verilog HDL Implicit Net warning at testmoduledup.sv(88): created implicit net for "ovfl"
+Warning (10236): Verilog HDL Implicit Net warning at testmoduledup.sv(89): created implicit net for "ltfl"
+Warning (10236): Verilog HDL Implicit Net warning at testmoduledup.sv(90): created implicit net for "SYNTHESIZED_WIRE_7"
+Warning (10236): Verilog HDL Implicit Net warning at testmoduledup.sv(91): created implicit net for "res"
 Info (12127): Elaborating entity "CS141L" for the top level hierarchy
-Warning (275009): Pin "pin_name5" not connected
-Warning (275009): Pin "pin_name6" not connected
-Warning (275009): Pin "pin_name7" not connected
-Warning (275009): Pin "pin_name8" not connected
-Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:inst"
-Info (12128): Elaborating entity "regfile32x8" for hierarchy "regfile32x8:inst4"
-Info (12128): Elaborating entity "alu" for hierarchy "alu:inst5"
-Warning (10776): Verilog HDL warning at alu.sv(34): variable overflow in static task or function add may have unintended latch behavior
-Warning (10776): Verilog HDL warning at alu.sv(85): variable notLessThanFlag in static task or function lessThan may have unintended latch behavior
-Warning (10030): Net "add.result[7]" at alu.sv(34) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "add.overflow" at alu.sv(34) has no driver or initial value, using a default initial value '0'
-Warning (10030): Net "lessThan.notLessThanFlag" at alu.sv(85) has no driver or initial value, using a default initial value '0'
+Warning (275085): Found inconsistent dimensions for element "ovfl"
+Warning (275080): Converted elements in bus name "ovfl" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "ovfl[7..0]" to "ovfl7..0"
+Info (12128): Elaborating entity "alu" for hierarchy "alu:inst"
+Warning (10776): Verilog HDL warning at alu.sv(49): variable overflow in static task or function add may have unintended latch behavior
+Warning (10776): Verilog HDL warning at alu.sv(100): variable lessThanFlag in static task or function lessThan may have unintended latch behavior
+Warning (10270): Verilog HDL Case Statement warning at alu.sv(17): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at alu.sv(11): inferring latch(es) for variable "result", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alu.sv(11): inferring latch(es) for variable "overflow", which holds its previous value in one or more paths through the always construct
+Warning (10030): Net "add.result[7]" at alu.sv(49) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "add.overflow" at alu.sv(49) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "lessThan.lessThanFlag" at alu.sv(100) has no driver or initial value, using a default initial value '0'
+Info (10041): Inferred latch for "overflow[0]" at alu.sv(11)
+Info (10041): Inferred latch for "overflow[1]" at alu.sv(11)
+Info (10041): Inferred latch for "overflow[2]" at alu.sv(11)
+Info (10041): Inferred latch for "overflow[3]" at alu.sv(11)
+Info (10041): Inferred latch for "overflow[4]" at alu.sv(11)
+Info (10041): Inferred latch for "overflow[5]" at alu.sv(11)
+Info (10041): Inferred latch for "overflow[6]" at alu.sv(11)
+Info (10041): Inferred latch for "overflow[7]" at alu.sv(11)
+Info (10041): Inferred latch for "result[0]" at alu.sv(11)
+Info (10041): Inferred latch for "result[1]" at alu.sv(11)
+Info (10041): Inferred latch for "result[2]" at alu.sv(11)
+Info (10041): Inferred latch for "result[3]" at alu.sv(11)
+Info (10041): Inferred latch for "result[4]" at alu.sv(11)
+Info (10041): Inferred latch for "result[5]" at alu.sv(11)
+Info (10041): Inferred latch for "result[6]" at alu.sv(11)
+Info (10041): Inferred latch for "result[7]" at alu.sv(11)
+Warning (13012): Latch alu:inst|overflow[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|overflow[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|overflow[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|overflow[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|overflow[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|overflow[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|overflow[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|overflow[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|result[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
+Warning (13012): Latch alu:inst|result[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
+Warning (13012): Latch alu:inst|result[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[2]
+Warning (13012): Latch alu:inst|result[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
+Warning (13012): Latch alu:inst|result[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|result[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[0]
+Warning (13012): Latch alu:inst|result[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
+Warning (13012): Latch alu:inst|result[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal opc[3]
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "pin_name5"
-    Warning (15610): No output dependent on input pin "pin_name6"
-    Warning (15610): No output dependent on input pin "pin_name7"
-    Warning (15610): No output dependent on input pin "pin_name8"
-Info (21057): Implemented 32 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 15 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 9 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 602 megabytes
-    Info: Processing ended: Fri Feb 06 01:39:44 2015
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:30
+Info (21057): Implemented 255 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 21 input pins
+    Info (21059): Implemented 18 output pins
+    Info (21061): Implemented 216 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 71 warnings
+    Info: Peak virtual memory: 603 megabytes
+    Info: Processing ended: Fri Feb 06 09:34:54 2015
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:38
 
 
