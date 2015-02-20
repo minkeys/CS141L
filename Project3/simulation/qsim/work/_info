@@ -9,13 +9,13 @@ z2
 cModel Technology
 dC:/Users/Minh/Documents/GitHub/CS141L/Project2/simulation/qsim
 vCS141L
-Z0 !s110 1424260418
+Z0 !s110 1424436349
 !i10b 1
-!s100 lQ6jfU8YaU?54aLDMYkRY0
-ILS@1M9FPPFWNG;=<=P[EK2
+!s100 PXmRZkXL8Kn4^gD1>TA9f3
+ISf7FF>]d9@>68Q75YOM6M1
 Z1 V`JN@9S9cnhjKRR_L]QIcM3
 Z2 dC:/Users/Minh/Documents/GitHub/CS141L/Project3/simulation/qsim
-w1424260416
+w1424436347
 8CS141L.vo
 FCS141L.vo
 L0 32
@@ -23,7 +23,7 @@ Z3 OV;L;10.3c;59
 r1
 !s85 0
 31
-!s108 1424260418.024000
+!s108 1424436349.017000
 !s107 CS141L.vo|
 !s90 -work|work|CS141L.vo|
 !i113 1
@@ -32,19 +32,19 @@ n@c@s141@l
 vCS141L_vlg_check_tst
 R0
 !i10b 1
-!s100 Si`Wk`YNAP04o3;il5a==1
-I_TbMk>SX5S9f<<W[f6McD2
+!s100 7IXJ9Ci1>jF=mKT?PNXZg3
+IdU1RoLRDk<IXMW6EG2JOL3
 R1
 R2
-Z5 w1424260414
+Z5 w1424436343
 Z6 8Waveform9.vwf.vt
 Z7 FWaveform9.vwf.vt
-L0 64
+L0 66
 R3
 r1
 !s85 0
 31
-Z8 !s108 1424260418.228000
+Z8 !s108 1424436349.163000
 Z9 !s107 Waveform9.vwf.vt|
 Z10 !s90 -work|work|Waveform9.vwf.vt|
 !i113 1
@@ -53,8 +53,8 @@ n@c@s141@l_vlg_check_tst
 vCS141L_vlg_sample_tst
 R0
 !i10b 1
-!s100 jFCBX[ee4oP>QnAjTI4WE1
-I3<`mB[bIHCWn2<iXkzeci2
+!s100 eS<NJAldocYF4LbKN?Wn:1
+I^CW23d1ZBTl>LO1Sl0==G0
 R1
 R2
 R5
@@ -74,14 +74,14 @@ n@c@s141@l_vlg_sample_tst
 vCS141L_vlg_vec_tst
 R0
 !i10b 1
-!s100 fKdCTQcz9kk@Lc2JZQoCQ0
-I=m<=LNLND<DzRiGnMUVC?1
+!s100 T202YLNG9?Oo[OWi90Q?H1
+I>[QOUCim[kaDdm8OjUKiz3
 R1
 R2
 R5
 R6
 R7
-L0 597
+L0 626
 R3
 r1
 !s85 0

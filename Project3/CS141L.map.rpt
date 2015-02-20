@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CS141L
-Wed Feb 18 03:50:00 2015
+Fri Feb 20 04:44:37 2015
 Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
 
 
@@ -13,18 +13,16 @@ Quartus II 64-Bit Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. Logic Cells Representing Combinational Loops
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: testerROM:inst
- 15. Parameter Settings for User Entity Instance: BUSMUX:bm1
- 16. Parameter Settings for User Entity Instance: BUSMUX:bm2
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: testerROM:inst
+ 13. Parameter Settings for User Entity Instance: BUSMUX:bm1
+ 14. Parameter Settings for User Entity Instance: BUSMUX:bm2
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -51,16 +49,16 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Feb 18 03:50:00 2015      ;
+; Analysis & Synthesis Status        ; Successful - Fri Feb 20 04:44:37 2015      ;
 ; Quartus II 64-Bit Version          ; 14.1.0 Build 186 12/03/2014 SJ Web Edition ;
 ; Revision Name                      ; CS141L                                     ;
 ; Top-level Entity Name              ; CS141L                                     ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 217                                        ;
-;     Total combinational functions  ; 153                                        ;
-;     Dedicated logic registers      ; 88                                         ;
-; Total registers                    ; 88                                         ;
-; Total pins                         ; 34                                         ;
+; Total logic elements               ; 36                                         ;
+;     Total combinational functions  ; 27                                         ;
+;     Dedicated logic registers      ; 23                                         ;
+; Total registers                    ; 23                                         ;
+; Total pins                         ; 36                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -200,243 +198,258 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 217            ;
+; Estimated Total logic elements              ; 36             ;
 ;                                             ;                ;
-; Total combinational functions               ; 153            ;
+; Total combinational functions               ; 27             ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 97             ;
-;     -- 3 input functions                    ; 40             ;
-;     -- <=2 input functions                  ; 16             ;
+;     -- 4 input functions                    ; 12             ;
+;     -- 3 input functions                    ; 1              ;
+;     -- <=2 input functions                  ; 14             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 146            ;
+;     -- normal mode                          ; 20             ;
 ;     -- arithmetic mode                      ; 7              ;
 ;                                             ;                ;
-; Total registers                             ; 88             ;
-;     -- Dedicated logic registers            ; 88             ;
+; Total registers                             ; 23             ;
+;     -- Dedicated logic registers            ; 23             ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 34             ;
+; I/O pins                                    ; 36             ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; 21mux:inst27|5 ;
-; Maximum fan-out                             ; 89             ;
-; Total fan-out                               ; 864            ;
-; Average fan-out                             ; 2.80           ;
+; Maximum fan-out                             ; 24             ;
+; Total fan-out                               ; 198            ;
+; Average fan-out                             ; 1.62           ;
 +---------------------------------------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                     ;
-+-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------+
-; Compilation Hierarchy Node        ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                      ; Library Name ;
-+-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------+
-; |CS141L                           ; 153 (0)           ; 88 (0)       ; 0           ; 0            ; 0       ; 0         ; 34   ; 0            ; |CS141L                                                  ; work         ;
-;    |21mux:inst27|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|21mux:inst27                                     ; work         ;
-;    |alu:inst29|                   ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|alu:inst29                                       ; work         ;
-;    |busmux:bm1|                   ; 15 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|busmux:bm1                                       ; work         ;
-;       |lpm_mux:$00000|            ; 15 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|busmux:bm1|lpm_mux:$00000                        ; work         ;
-;          |mux_erc:auto_generated| ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|busmux:bm1|lpm_mux:$00000|mux_erc:auto_generated ; work         ;
-;    |instructionDecode:inst26|     ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|instructionDecode:inst26                         ; work         ;
-;    |program_counter_logic:inst20| ; 28 (28)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|program_counter_logic:inst20                     ; work         ;
-;    |regfile32x8:inst9|            ; 56 (56)           ; 72 (72)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|regfile32x8:inst9                                ; work         ;
-;    |testerROM:inst|               ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|testerROM:inst                                   ; work         ;
-+-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; Compilation Hierarchy Node        ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Library Name ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; |CS141L                           ; 27 (1)            ; 23 (0)       ; 0           ; 0            ; 0       ; 0         ; 36   ; 0            ; |CS141L                              ; work         ;
+;    |21mux:inst27|                 ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|21mux:inst27                 ; work         ;
+;    |instructionDecode:sjakga|     ; 6 (6)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|instructionDecode:sjakga     ; work         ;
+;    |program_counter_logic:inst20| ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|program_counter_logic:inst20 ; work         ;
+;    |testerROM:inst|               ; 10 (10)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |CS141L|testerROM:inst               ; work         ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                            ;
-+-----------------------------------------------------+---------------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal             ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------------------+------------------------+
-; instructionDecode:inst26|rd[1]                      ; instructionDecode:inst26|rd     ; yes                    ;
-; instructionDecode:inst26|rd[0]                      ; instructionDecode:inst26|rd     ; yes                    ;
-; instructionDecode:inst26|rd[2]                      ; instructionDecode:inst26|rd     ; yes                    ;
-; instructionDecode:inst26|labelValue[7]              ; instructionDecode:inst26|Equal0 ; yes                    ;
-; alu:inst29|result[7]                                ; alu:inst29|Mux17                ; yes                    ;
-; instructionDecode:inst26|labelValue[6]              ; instructionDecode:inst26|Equal0 ; yes                    ;
-; alu:inst29|result[6]                                ; alu:inst29|Mux17                ; yes                    ;
-; instructionDecode:inst26|labelValue[5]              ; instructionDecode:inst26|Equal0 ; yes                    ;
-; alu:inst29|result[5]                                ; alu:inst29|Mux17                ; yes                    ;
-; instructionDecode:inst26|labelValue[4]              ; instructionDecode:inst26|Equal0 ; yes                    ;
-; alu:inst29|result[4]                                ; alu:inst29|Mux17                ; yes                    ;
-; instructionDecode:inst26|labelValue[3]              ; instructionDecode:inst26|Equal0 ; yes                    ;
-; alu:inst29|result[3]                                ; alu:inst29|Mux17                ; yes                    ;
-; instructionDecode:inst26|labelValue[2]              ; instructionDecode:inst26|Equal0 ; yes                    ;
-; alu:inst29|result[2]                                ; alu:inst29|Mux17                ; yes                    ;
-; instructionDecode:inst26|labelValue[1]              ; instructionDecode:inst26|Equal0 ; yes                    ;
-; alu:inst29|result[1]                                ; alu:inst29|Mux17                ; yes                    ;
-; instructionDecode:inst26|labelValue[0]              ; instructionDecode:inst26|Equal0 ; yes                    ;
-; alu:inst29|result[0]                                ; alu:inst29|Mux17                ; yes                    ;
-; Number of user-specified and inferred latches = 19  ;                                 ;                        ;
-+-----------------------------------------------------+---------------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
++-----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                      ;
++-------------------------------------------+---------------------------------------------+
+; Register name                             ; Reason for Removal                          ;
++-------------------------------------------+---------------------------------------------+
+; instructionDecode:sjakga|rs[1..3]         ; Stuck at GND due to stuck port data_in      ;
+; instructionDecode:sjakga|rt[1..3]         ; Stuck at GND due to stuck port data_in      ;
+; instructionDecode:sjakga|rd[1..3]         ; Stuck at GND due to stuck port data_in      ;
+; instructionDecode:sjakga|signFlag         ; Stuck at GND due to stuck port data_in      ;
+; instructionDecode:sjakga|value[1..7]      ; Stuck at GND due to stuck port data_in      ;
+; regfile32x8:inst9|regfile[15][0]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][1]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][2]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][3]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][4]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][5]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][6]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[15][7]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][0]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][1]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][2]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][3]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][4]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][5]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][6]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[14][7]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][0]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][1]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][2]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][3]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][4]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][5]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][6]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[13][7]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][0]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][1]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][2]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][3]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][4]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][5]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][6]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[12][7]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][0]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][1]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][2]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][3]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][4]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][5]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][6]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[11][7]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][0]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][1]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][2]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][3]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][4]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][5]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][6]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[10][7]          ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][0]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][1]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][2]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][3]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][4]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][5]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][6]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[9][7]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][0]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][1]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][2]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][3]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][4]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][5]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][6]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[8][7]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[7][0]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[7][1]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[7][2]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[7][3]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[7][4]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[7][5]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[7][6]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[7][7]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[6][0]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[6][1]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[6][2]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[6][3]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[6][4]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[6][5]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[6][6]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[6][7]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[5][0]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[5][1]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[5][2]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[5][3]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[5][4]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[5][5]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[5][6]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[5][7]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[4][0]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[4][1]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[4][2]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[4][3]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[4][4]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[4][5]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[4][6]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[4][7]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[3][0]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[3][1]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[3][2]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[3][3]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[3][4]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[3][5]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[3][6]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[3][7]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[2][0]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[2][1]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[2][2]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[2][3]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[2][4]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[2][5]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[2][6]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[2][7]           ; Lost fanout                                 ;
+; regfile32x8:inst9|regfile[1][0]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][1]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][2]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][3]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][4]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][5]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][6]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[1][7]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][0]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][1]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][2]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][3]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][4]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][5]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][6]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regfile[0][7]           ; Stuck at GND due to stuck port clock_enable ;
+; regfile32x8:inst9|regA[1..7]              ; Merged with regfile32x8:inst9|regA[0]       ;
+; regfile32x8:inst9|regB[1..7]              ; Merged with regfile32x8:inst9|regB[0]       ;
+; regfile32x8:inst9|regB[0]                 ; Stuck at GND due to stuck port data_in      ;
+; regfile32x8:inst9|regA[0]                 ; Stuck at GND due to stuck port data_in      ;
+; instructionDecode:sjakga|branchFlag       ; Stuck at GND due to stuck port data_in      ;
+; instructionDecode:sjakga|labelFlag        ; Stuck at GND due to stuck port data_in      ;
+; regfile32x8:inst9|branchAddress[0..7]     ; Lost fanout                                 ;
+; instructionDecode:sjakga|labelValue[0]    ; Lost fanout                                 ;
+; instructionDecode:sjakga|immediateFlag    ; Lost fanout                                 ;
+; instructionDecode:sjakga|value[0]         ; Lost fanout                                 ;
+; instructionDecode:sjakga|labelValue[1..7] ; Lost fanout                                 ;
+; instructionDecode:sjakga|rd[0]            ; Lost fanout                                 ;
+; Total Number of Removed Registers = 182   ;                                             ;
++-------------------------------------------+---------------------------------------------+
 
 
-+------------------------------------------------------------+
-; Logic Cells Representing Combinational Loops               ;
-+--------------------------------------------------------+---+
-; Logic Cell Name                                        ;   ;
-+--------------------------------------------------------+---+
-; instructionDecode:inst26|WideNor0~0                    ;   ;
-; instructionDecode:inst26|labelPassFlagOut~0            ;   ;
-; instructionDecode:inst26|WideNor0~1                    ;   ;
-; Number of logic cells representing combinational loops ; 3 ;
-+--------------------------------------------------------+---+
-Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+---------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                    ;
-+-----------------------------------------+---------------------------------------------+
-; Register name                           ; Reason for Removal                          ;
-+-----------------------------------------+---------------------------------------------+
-; regfile32x8:inst9|regfile[15][0]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[15][1]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[15][2]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[15][3]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[15][4]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[15][5]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[15][6]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[15][7]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[14][0]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[14][1]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[14][2]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[14][3]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[14][4]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[14][5]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[14][6]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[14][7]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[13][0]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[13][1]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[13][2]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[13][3]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[13][4]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[13][5]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[13][6]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[13][7]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[12][0]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[12][1]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[12][2]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[12][3]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[12][4]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[12][5]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[12][6]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[12][7]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[11][0]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[11][1]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[11][2]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[11][3]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[11][4]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[11][5]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[11][6]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[11][7]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[10][0]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[10][1]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[10][2]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[10][3]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[10][4]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[10][5]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[10][6]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[10][7]        ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[9][0]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[9][1]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[9][2]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[9][3]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[9][4]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[9][5]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[9][6]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[9][7]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[8][0]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[8][1]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[8][2]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[8][3]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[8][4]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[8][5]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[8][6]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[8][7]         ; Lost fanout                                 ;
-; regfile32x8:inst9|regfile[7][0]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[7][1]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[7][2]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[7][3]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[7][4]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[7][5]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[7][6]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[7][7]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[6][0]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[6][1]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[6][2]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[6][3]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[6][4]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[6][5]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[6][6]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[6][7]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[5][0]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[5][1]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[5][2]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[5][3]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[5][4]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[5][5]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[5][6]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[5][7]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[4][0]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[4][1]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[4][2]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[4][3]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[4][4]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[4][5]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[4][6]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[4][7]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[3][0]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[3][1]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[3][2]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[3][3]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[3][4]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[3][5]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[3][6]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[3][7]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[2][0]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[2][1]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[2][2]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[2][3]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[2][4]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[2][5]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[2][6]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[2][7]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[1][0]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[1][1]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[1][2]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[1][3]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[1][4]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[1][5]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[1][6]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[1][7]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[0][0]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[0][1]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[0][2]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[0][3]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[0][4]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[0][5]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[0][6]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regfile[0][7]         ; Stuck at GND due to stuck port clock_enable ;
-; regfile32x8:inst9|regA[1..7]            ; Merged with regfile32x8:inst9|regA[0]       ;
-; regfile32x8:inst9|regB[1..7]            ; Merged with regfile32x8:inst9|regB[0]       ;
-; regfile32x8:inst9|regB[0]               ; Stuck at GND due to stuck port data_in      ;
-; regfile32x8:inst9|regA[0]               ; Stuck at GND due to stuck port data_in      ;
-; Total Number of Removed Registers = 144 ;                                             ;
-+-----------------------------------------+---------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                               ;
-+---------------------------------+--------------------------------+----------------------------------------+
-; Register name                   ; Reason for Removal             ; Registers Removed due to This Register ;
-+---------------------------------+--------------------------------+----------------------------------------+
-; regfile32x8:inst9|regfile[7][0] ; Stuck at GND                   ; regfile32x8:inst9|regB[0]              ;
-;                                 ; due to stuck port clock_enable ;                                        ;
-+---------------------------------+--------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                     ;
++-----------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; Register name                     ; Reason for Removal        ; Registers Removed due to This Register                                          ;
++-----------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; instructionDecode:sjakga|value[1] ; Stuck at GND              ; regfile32x8:inst9|regfile[15][1], regfile32x8:inst9|regfile[15][6],             ;
+;                                   ; due to stuck port data_in ; regfile32x8:inst9|regfile[15][7], regfile32x8:inst9|regfile[14][6],             ;
+;                                   ;                           ; regfile32x8:inst9|regfile[14][7], regfile32x8:inst9|regfile[13][6],             ;
+;                                   ;                           ; regfile32x8:inst9|regfile[13][7], regfile32x8:inst9|regfile[12][6],             ;
+;                                   ;                           ; regfile32x8:inst9|regfile[12][7], regfile32x8:inst9|regfile[11][6],             ;
+;                                   ;                           ; regfile32x8:inst9|regfile[11][7], regfile32x8:inst9|regfile[10][6],             ;
+;                                   ;                           ; regfile32x8:inst9|regfile[10][7], regfile32x8:inst9|regfile[9][6],              ;
+;                                   ;                           ; regfile32x8:inst9|regfile[9][7], regfile32x8:inst9|regfile[7][6],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[7][7], regfile32x8:inst9|regfile[6][6],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[6][7], regfile32x8:inst9|regfile[5][6],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[5][7], regfile32x8:inst9|regfile[1][1],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[0][1], regfile32x8:inst9|branchAddress[7],            ;
+;                                   ;                           ; regfile32x8:inst9|branchAddress[6], regfile32x8:inst9|branchAddress[5],         ;
+;                                   ;                           ; regfile32x8:inst9|branchAddress[4], regfile32x8:inst9|branchAddress[3],         ;
+;                                   ;                           ; regfile32x8:inst9|branchAddress[2]                                              ;
+; instructionDecode:sjakga|rs[3]    ; Stuck at GND              ; regfile32x8:inst9|regfile[4][0], regfile32x8:inst9|regfile[4][1],               ;
+;                                   ; due to stuck port data_in ; regfile32x8:inst9|regfile[4][2], regfile32x8:inst9|regfile[4][3],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[4][4], regfile32x8:inst9|regfile[4][5],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[4][6], regfile32x8:inst9|regfile[4][7],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[3][0], regfile32x8:inst9|regfile[3][1],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[3][2], regfile32x8:inst9|regfile[3][3],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[3][4], regfile32x8:inst9|regfile[3][5],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[3][6], regfile32x8:inst9|regfile[3][7],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[2][0], regfile32x8:inst9|regfile[2][1],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[2][2], regfile32x8:inst9|regfile[2][3],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[2][4], regfile32x8:inst9|regfile[2][5],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[2][6], regfile32x8:inst9|regfile[2][7],               ;
+;                                   ;                           ; regfile32x8:inst9|regA[0]                                                       ;
+; instructionDecode:sjakga|rd[3]    ; Stuck at GND              ; regfile32x8:inst9|regfile[8][0], regfile32x8:inst9|regfile[8][1],               ;
+;                                   ; due to stuck port data_in ; regfile32x8:inst9|regfile[8][2], regfile32x8:inst9|regfile[8][3],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[8][4], regfile32x8:inst9|regfile[8][5],               ;
+;                                   ;                           ; regfile32x8:inst9|regfile[8][6], regfile32x8:inst9|regfile[8][7],               ;
+;                                   ;                           ; instructionDecode:sjakga|labelValue[0], instructionDecode:sjakga|labelValue[1], ;
+;                                   ;                           ; instructionDecode:sjakga|labelValue[2], instructionDecode:sjakga|labelValue[3], ;
+;                                   ;                           ; instructionDecode:sjakga|labelValue[4], instructionDecode:sjakga|labelValue[5], ;
+;                                   ;                           ; instructionDecode:sjakga|labelValue[6], instructionDecode:sjakga|labelValue[7], ;
+;                                   ;                           ; instructionDecode:sjakga|rd[0]                                                  ;
+; instructionDecode:sjakga|rt[3]    ; Stuck at GND              ; regfile32x8:inst9|regB[0], regfile32x8:inst9|branchAddress[1],                  ;
+;                                   ; due to stuck port data_in ; regfile32x8:inst9|branchAddress[0], instructionDecode:sjakga|value[0]           ;
+; instructionDecode:sjakga|signFlag ; Stuck at GND              ; regfile32x8:inst9|regfile[1][7], regfile32x8:inst9|regfile[0][7],               ;
+;                                   ; due to stuck port data_in ; instructionDecode:sjakga|immediateFlag                                          ;
+; instructionDecode:sjakga|value[2] ; Stuck at GND              ; regfile32x8:inst9|regfile[15][2], regfile32x8:inst9|regfile[1][2],              ;
+;                                   ; due to stuck port data_in ; regfile32x8:inst9|regfile[0][2]                                                 ;
+; instructionDecode:sjakga|value[3] ; Stuck at GND              ; regfile32x8:inst9|regfile[15][3], regfile32x8:inst9|regfile[1][3],              ;
+;                                   ; due to stuck port data_in ; regfile32x8:inst9|regfile[0][3]                                                 ;
+; instructionDecode:sjakga|value[4] ; Stuck at GND              ; regfile32x8:inst9|regfile[15][4], regfile32x8:inst9|regfile[1][4],              ;
+;                                   ; due to stuck port data_in ; regfile32x8:inst9|regfile[0][4]                                                 ;
+; instructionDecode:sjakga|value[5] ; Stuck at GND              ; regfile32x8:inst9|regfile[15][5], regfile32x8:inst9|regfile[1][5],              ;
+;                                   ; due to stuck port data_in ; regfile32x8:inst9|regfile[0][5]                                                 ;
+; instructionDecode:sjakga|value[6] ; Stuck at GND              ; regfile32x8:inst9|regfile[1][6], regfile32x8:inst9|regfile[0][6]                ;
+;                                   ; due to stuck port data_in ;                                                                                 ;
++-----------------------------------+---------------------------+---------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -444,12 +457,12 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 88    ;
+; Total registers                              ; 23    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 8     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 80    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -460,7 +473,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |CS141L|program_counter_logic:inst20|outputPC[7] ;
-; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |CS141L|alu:inst29|Mux9                          ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |CS141L|instructionDecode:sjakga|opcode          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 
 
@@ -499,23 +512,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 34                          ;
-; cycloneiii_ff         ; 88                          ;
-;     ENA               ; 72                          ;
-;     ENA SLD           ; 8                           ;
-;     plain             ; 8                           ;
-; cycloneiii_lcell_comb ; 154                         ;
+; boundary_port         ; 36                          ;
+; cycloneiii_ff         ; 23                          ;
+;     SLD               ; 8                           ;
+;     plain             ; 15                          ;
+; cycloneiii_lcell_comb ; 28                          ;
 ;     arith             ; 7                           ;
 ;         2 data inputs ; 7                           ;
-;     normal            ; 147                         ;
+;     normal            ; 21                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 1                           ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 40                          ;
-;         4 data inputs ; 97                          ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 12                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.00                        ;
-; Average LUT depth     ; 3.94                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.64                        ;
 +-----------------------+-----------------------------+
 
 
@@ -534,7 +546,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 14.1.0 Build 186 12/03/2014 SJ Web Edition
-    Info: Processing started: Wed Feb 18 03:49:44 2015
+    Info: Processing started: Fri Feb 20 04:44:19 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CS141L -c CS141L
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file regfile32x8.sv
@@ -598,51 +610,8 @@ Warning (10236): Verilog HDL Implicit Net warning at testmoduledup.sv(91): creat
 Info (12127): Elaborating entity "CS141L" for the top level hierarchy
 Info (12128): Elaborating entity "21mux" for hierarchy "21mux:inst27"
 Info (12130): Elaborated megafunction instantiation "21mux:inst27"
-Info (12128): Elaborating entity "instructionDecode" for hierarchy "instructionDecode:inst26"
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(34): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10230): Verilog HDL assignment warning at instructionDecode.sv(34): truncated value with size 8 to match size of target (4)
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(35): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(37): variable "labelPassFlag" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(39): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(60): variable "opcode" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(61): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(62): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(63): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(64): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(65): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(66): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(67): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(68): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(69): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(70): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(71): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(72): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(73): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at instructionDecode.sv(74): variable "value" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10240): Verilog HDL Always Construct warning at instructionDecode.sv(23): inferring latch(es) for variable "rs", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at instructionDecode.sv(23): inferring latch(es) for variable "rt", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at instructionDecode.sv(23): inferring latch(es) for variable "rd", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at instructionDecode.sv(23): inferring latch(es) for variable "labelValue", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "labelValue[0]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "labelValue[1]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "labelValue[2]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "labelValue[3]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "labelValue[4]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "labelValue[5]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "labelValue[6]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "labelValue[7]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rd[0]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rd[1]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rd[2]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rd[3]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rt[0]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rt[1]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rt[2]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rt[3]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rs[0]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rs[1]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rs[2]" at instructionDecode.sv(23)
-Info (10041): Inferred latch for "rs[3]" at instructionDecode.sv(23)
+Info (12128): Elaborating entity "instructionDecode" for hierarchy "instructionDecode:sjakga"
+Warning (10230): Verilog HDL assignment warning at instructionDecode.sv(78): truncated value with size 8 to match size of target (4)
 Info (12128): Elaborating entity "testerROM" for hierarchy "testerROM:inst"
 Warning (10030): Net "rom.data_a" at testerROM.sv(14) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "rom.waddr_a" at testerROM.sv(14) has no driver or initial value, using a default initial value '0'
@@ -685,54 +654,24 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/mux_
     Info (12023): Found entity 1: mux_erc
 Info (12128): Elaborating entity "mux_erc" for hierarchy "BUSMUX:bm1|lpm_mux:$00000|mux_erc:auto_generated"
 Warning (19016): Clock multiplexers are found and protected
-    Warning (19017): Found clock multiplexer instructionDecode:inst26|opcode~0
-    Warning (19017): Found clock multiplexer instructionDecode:inst26|opcode[1]
-    Warning (19017): Found clock multiplexer instructionDecode:inst26|opcode[2]
-    Warning (19017): Found clock multiplexer instructionDecode:inst26|opcode~1
-Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer 21mux:inst27|5~0
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276004): RAM logic "regfile32x8:inst9|labelfile" is uninferred due to inappropriate RAM size
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Minh/Documents/GitHub/CS141L/Project3/db/CS141L.ram0_testerROM_61eacb6.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (19016): Clock multiplexers are found and protected
-    Warning (19017): Found clock multiplexer testerROM:inst|rom~0
-    Warning (19017): Found clock multiplexer instructionDecode:inst26|Selector1~0
-    Warning (19017): Found clock multiplexer instructionDecode:inst26|Selector2~0
-    Warning (19017): Found clock multiplexer testerROM:inst|rom~1
-    Warning (19017): Found clock multiplexer testerROM:inst|rom~2
-Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "alu:inst29|result[3]" merged with LATCH primitive "alu:inst29|result[7]"
-    Info (13026): Duplicate LATCH primitive "alu:inst29|result[4]" merged with LATCH primitive "alu:inst29|result[7]"
-    Info (13026): Duplicate LATCH primitive "alu:inst29|result[5]" merged with LATCH primitive "alu:inst29|result[7]"
-    Info (13026): Duplicate LATCH primitive "alu:inst29|result[6]" merged with LATCH primitive "alu:inst29|result[7]"
-Warning (13012): Latch instructionDecode:inst26|rd[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|WideNor0~0
-Warning (13012): Latch instructionDecode:inst26|rd[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|WideNor0~1
-Warning (13012): Latch instructionDecode:inst26|rd[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|WideNor0~1
-Warning (13012): Latch alu:inst29|result[7] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|opcode~0
-Warning (13012): Latch alu:inst29|result[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|opcode~0
-Warning (13012): Latch alu:inst29|result[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|opcode~0
-Warning (13012): Latch alu:inst29|result[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal instructionDecode:inst26|opcode~0
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "instruction_value[3]" is stuck at GND
     Warning (13410): Pin "instruction_value[2]" is stuck at GND
-Info (17049): 64 registers lost all their fanouts during netlist optimizations.
+Info (17049): 131 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 259 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 23 output pins
-    Info (21061): Implemented 225 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 95 warnings
-    Info: Peak virtual memory: 605 megabytes
-    Info: Processing ended: Wed Feb 18 03:50:00 2015
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:38
+Info (21057): Implemented 73 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 12 input pins
+    Info (21059): Implemented 24 output pins
+    Info (21061): Implemented 37 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 47 warnings
+    Info: Peak virtual memory: 607 megabytes
+    Info: Processing ended: Fri Feb 20 04:44:37 2015
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:40
 
 

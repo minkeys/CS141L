@@ -1,62 +1,140 @@
 module instructionDecode(
+input clk,
 input[7:0] program_counter,
 input[7:0] instruction,
 input inputPCResetFlag,
-input labelPassFlag,
+input labelPassFlagIn,
 
-output[3:0] opcode,
-output[7:0] value,
-output[3:0] rs,
-output[3:0] rt,
-output[3:0] rd,
-output branchFlag,
-output labelFlag,
-output immediateFlag,
-output signFlag,
-output[7:0] labelValue,
-output haltFlag,
-output outputPCResetFlag,
-output labelPassFlagOut
+output reg[3:0] opcode,
+output reg[7:0] value,
+output reg[3:0] rs,
+output reg[3:0] rt,
+output reg[3:0] rd,
+output reg branchFlag,
+output reg labelFlag,
+output reg immediateFlag,
+output reg signFlag,
+output reg[7:0] labelValue,
+output reg haltFlag,
+output reg outputPCResetFlag,
+output reg labelPassFlagOut
 );
 
-//always @ (posedge program_counter)
-always @ (program_counter)
-begin
+// create local registers
 
-	labelFlag <= 0;
-	branchFlag <= 0;
-	immediateFlag <= 0;
-	signFlag <= 0;
-	haltFlag <= 0;
-	outputPCResetFlag <= 0;
-	labelPassFlagOut <= 0;
+// Registers for inputs
+// input[7:0] program_counter,
+// input[7:0] instruction,
+// input inputPCResetFlag,
+// input labelPassFlag,
+// p_ means previous
+
+reg [7:0] p_program_counter,
+	p_instruction;
+
+reg p_inputPCResetFlag,
+	p_labelPassFlagIn;
+
+// Registers for outputs
+// output[3:0] opcode,
+// output[7:0] value,
+// output[3:0] rs,
+// output[3:0] rt,
+// output[3:0] rd,
+// output branchFlag,
+// output labelFlag,
+// output immediateFlag,
+// output signFlag,
+// output[7:0] labelValue,
+// output haltFlag,
+// output outputPCResetFlag,
+// output labelPassFlagOut
+// n_ means next
+
+reg [7:0] n_value,
+	n_labelValue;
+
+reg [3:0] n_opcode,
+	n_rs,
+	n_rt,
+	n_rd;
+
+reg n_branchFlag,
+	n_labelFlag,
+	n_immediateFlag,
+	n_signFlag,
+	n_haltFlag,
+	n_outputPCResetFlag,
+	n_labelPassFlagOut;
+	//labelPassFlag = 1'b1;
+// done creating registers
+
+// BLOCKING HERE!
+// DO ALL COMBINATIONAL LOGIC HERE!
+always @ (posedge clk)
+begin
 	
-	opcode <= instruction >> 4;				
-	value <= instruction && 8'b00001111;
+	// NOW CHECK INPUTS, ASSIGN n_ VARIABLES!
+	opcode = (instruction >> 4);
+	value = instruction && 8'b00001111;
 	
-	if (!labelPassFlag)
-	begin
-	case (opcode)
-		4'b0111:
-		begin
-			// do nothing
-		end
-		4'b1110: 
-		begin
-			labelPassFlagOut <= 1;
-			outputPCResetFlag <= 1;
-			opcode <= 8;
-			value <= 6;
-		end
-		default:
-		begin
-			opcode <= 6;
-			value <= 3;
-		end	
-	endcase
+	labelFlag = 0;
+	branchFlag = 0;
+	immediateFlag = 0;
+	signFlag = 0;
+	haltFlag = 0;
+	//n_outputPCResetFlag = 0;
+	//n_labelPassFlagOut = 0;
+	
+//reg [7:0]
+	labelValue = 0;
+
+//reg [3:0]
+	rs = 0;
+	rt = 0;
+	rd = 0;
+	
+	outputPCResetFlag = 0;
+	//labelPassFlagOut = 1;
+
+if (labelPassFlagIn)
+	//if (labelPassFlag)
+begin
+	if (opcode == 4'b0111)
+	begin // stl
+		//n_outputPCResetFlag = 0;
+		labelPassFlagOut = 1;
+		//n_opcode = 4'b0111; 
+		//n_value = n_value; 
 	end
 	
+	else if (opcode == 4'b1110)
+	begin // halt
+		//n_outputPCResetFlag = 1;
+		labelPassFlagOut = 0;
+		//n_opcode = 4'b1110;
+		//n_value = 0;  // 0
+	end
 	
+	else
+	begin
+			// Do junk, nothing,
+		//n_outputPCResetFlag = 0;
+		labelPassFlagOut = 1;
+		opcode = 0; // 0
+		value = 0;  // 0
+	end
+end
+else
+begin
+	labelPassFlagOut = 0;
+end
+
+
+
+
+
+
 	case (opcode)
 		4'b0000: cpt(value, rs, rd);
 		4'b0001: cpf(value, rs, rd);
@@ -72,20 +150,132 @@ begin
 		4'b1011: shr(value, rs, rt, rd, immediateFlag);
 		4'b1100: adi(value, rs, rt, rd, immediateFlag); // addvalue
 		4'b1101: lui(value, rs, rt, rd, immediateFlag);
+		//4'b1110: hlt(haltFlag);
 		4'b1110: hlt();
 		4'b1111: tbd();
 		//default:
-	endcase
-		
+	endcase	
+
+
+
+/*
+	// First thing's first, GET INPUTS
+	p_program_counter = program_counter;
+	p_instruction = instruction;
+	//p_inputPCResetFlag = inputPCResetFlag;
+	p_labelPassFlagIn = labelPassFlagIn;
+	
+	// NOW CHECK INPUTS, ASSIGN n_ VARIABLES!
+
+	n_opcode = (p_instruction >> 4);
+	n_value = p_instruction && 8'b00001111;
+	
+	n_labelFlag = 0;
+	n_branchFlag = 0;
+	n_immediateFlag = 0;
+	n_signFlag = 0;
+	n_haltFlag = 0;
+	//n_outputPCResetFlag = 0;
+	//n_labelPassFlagOut = 0;
+	
+//reg [7:0]
+	n_labelValue = 0;
+
+//reg [3:0]
+	n_rs = 0;
+	n_rt = 0;
+	n_rd = 0;
+	
+	n_outputPCResetFlag = 0;
+	n_labelPassFlagOut = 1;
+
+if (p_labelPassFlagIn)
+	//if (labelPassFlag)
+begin
+	if (n_opcode == 4'b0111)
+	begin // stl
+		//n_outputPCResetFlag = 0;
+		n_labelPassFlagOut = 1;
+		//n_opcode = 4'b0111; 
+		//n_value = n_value; 
+	end
+	
+	else if (n_opcode == 4'b1110)
+	begin // halt
+		//n_outputPCResetFlag = 1;
+		n_labelPassFlagOut = 0;
+		//n_opcode = 4'b1110;
+		//n_value = 0;  // 0
+	end
+	
+	else
+	begin
+			// Do junk, nothing,
+		//n_outputPCResetFlag = 0;
+		n_labelPassFlagOut = 1;
+		n_opcode = 0; // 0
+		n_value = 0;  // 0
+	end
+end
+*/
+
+
+	/*
+	case (n_opcode)
+		4'b0000: cpt(n_value, n_rs, n_rd);
+		4'b0001: cpf(n_value, n_rs, n_rd);
+		4'b0010: add(n_value, n_rs, n_rt, n_rd, n_signFlag);
+		4'b0011: bnot(n_value, n_rs, n_rd);
+		4'b0100: band(n_value, n_rs, n_rt, n_rd);
+		4'b0101: ldr(n_value, n_rs, n_rd);
+		4'b0110: str(n_value, n_rs, n_rd);
+		4'b0111: stl(n_value, p_program_counter, n_rd, n_labelValue, n_labelFlag);
+		4'b1000: xOr(n_value, n_rs, n_rt, n_rd);
+		4'b1001: blt(n_value, n_rs, n_rt, n_rd, n_branchFlag);
+		4'b1010: shl(n_value, n_rs, n_rt, n_rd, n_immediateFlag);
+		4'b1011: shr(n_value, n_rs, n_rt, n_rd, n_immediateFlag);
+		4'b1100: adi(n_value, n_rs, n_rt, n_rd, n_immediateFlag); // addvalue
+		4'b1101: lui(n_value, n_rs, n_rt, n_rd, n_immediateFlag);
+		4'b1110: hlt(n_haltFlag);
+		4'b1111: tbd();
+		//default:
+	endcase	
+	*/
+
 end
 
+
+// NON-BLOCKING HERE!
+// UPDATE OUTPUTS WITH n_ VARIABLES!!
+
+/*
+always_ff @ (posedge clk)
+begin
+	value <= n_value;
+	labelValue <= n_labelValue;
+	opcode <= n_opcode;
+	rs <= n_rs;
+	rt <= n_rt;
+	rd <= n_rd;
+	branchFlag <= n_branchFlag;
+	labelFlag <= n_labelFlag;
+	immediateFlag <= n_immediateFlag;
+	signFlag <= n_signFlag;
+	haltFlag <= n_haltFlag;
+	outputPCResetFlag <= n_outputPCResetFlag;
+	//labelPassFlagOut <= n_labelPassFlagOut; 
+end
+*/
+// List of tasks
+
 task cpt;
-input [3:0] value;
-output[3:0] rs, rd;
+input [3:0] a_value;
+output[3:0] a_rs, a_rd;
+reg [3:0] a_rs, a_rd;
 
 begin
-	rs <= 4'b0000;
-	rd <= value;
+	a_rs = 4'b0000;
+	a_rd = a_value;
 end
 endtask
 
@@ -94,8 +284,8 @@ input [3:0] value;
 output[3:0] rs, rd;
 
 begin
-	rs <= value;
-	rd <= 4'b0000;
+	rs = value;
+	rd = 4'b0000;
 end
 endtask
 
@@ -104,10 +294,10 @@ input [3:0] value;
 output[3:0] rs, rt, rd;
 output signFlag;
 begin
-	rs <= 4'b0000;
-	rt <= 4'b0001;
-	signFlag <= value[3];
-	rd <= value;
+	rs = 4'b0000;
+	rt = 4'b0001;
+	signFlag = value[3];
+	rd = value;
 end
 endtask
 
@@ -116,8 +306,8 @@ input [3:0] value;
 output[3:0] rs, rd;
 
 begin
-	rs <= value;
-	rd <= 4'b0000;
+	rs = value;
+	rd = 4'b0000;
 end
 endtask
 
@@ -126,9 +316,9 @@ input [3:0] value;
 output[3:0] rs, rt, rd;
 
 begin
-	rs <= 4'b0000;
-	rt <= 4'b0001;
-	rd <= value;
+	rs = 4'b0000;
+	rt = 4'b0001;
+	rd = value;
 end
 endtask
 
@@ -139,8 +329,8 @@ output[3:0] rs, rd;
 
 begin
 // s0 is offset to load from
-	rs <= 4'b0000;
-	rd <= value;
+	rs = 4'b0000;
+	rd = value;
 end
 endtask
 
@@ -150,8 +340,8 @@ output[3:0] rs, rd;
 
 begin
 // s0 is offset to store to
-	rs <= value;
-	rd <= 4'b0000;
+	rs = value;
+	rd = 4'b0000;
 end
 endtask
 
@@ -164,9 +354,9 @@ output [7:0] labelValue;
 output labelFlag;
 
 begin
-	labelValue <= program_counter;
-	rd <= value;
-	labelFlag <= 1;
+	labelValue = program_counter;
+	rd = value;
+	labelFlag = 1;
 end
 
 endtask
@@ -178,9 +368,9 @@ input [3:0] value;
 output[3:0] rs, rt, rd;
 
 begin
-	rs <= 4'b0000;
-	rt <= 4'b0001;
-	rd <= value;
+	rs = 4'b0000;
+	rt = 4'b0001;
+	rd = value;
 end
 
 endtask
@@ -193,10 +383,10 @@ output[3:0] rs, rt, rd;
 output branchFlag;
 
 begin
-	rs <= 4'b0000;
-	rt <= 4'b0001;
-	rd <= value;
-	branchFlag <= 1;
+	rs = 4'b0000;
+	rt = 4'b0001;
+	rd = value;
+	branchFlag = 1;
 end
 
 endtask
@@ -209,10 +399,10 @@ output[3:0] rs, rt, rd;
 output immediateFlag;
 
 begin
-	rs <= 4'b0000;
-	rt <= value;
-	rd <= 4'b0000;
-	immediateFlag <= 1;
+	rs = 4'b0000;
+	rt = value;
+	rd = 4'b0000;
+	immediateFlag = 1;
 end
 
 endtask
@@ -225,10 +415,10 @@ output[3:0] rs, rt, rd;
 output immediateFlag;
 
 begin
-	rs <= 4'b0000;
-	rt <= value;
-	rd <= 4'b0000;
-	immediateFlag <= 1;
+	rs = 4'b0000;
+	rt = value;
+	rd = 4'b0000;
+	immediateFlag = 1;
 end
 
 endtask
@@ -241,10 +431,10 @@ output[3:0] rs, rt, rd;
 output immediateFlag;
 
 begin
-	rs <= 4'b0000;
-	rt <= value;
-	rd <= 4'b0000;
-	immediateFlag <= 1;
+	rs = 4'b0000;
+	rt = value;
+	rd = 4'b0000;
+	immediateFlag = 1;
 end
 
 endtask
@@ -257,24 +447,40 @@ output[3:0] rs, rt, rd;
 output immediateFlag;
 
 begin
-	rs <= 4'b0000;
-	rt <= value;
-	rd <= 4'b0000;
-	immediateFlag <= 1;
+	rs = 4'b0000;
+	rt = value;
+	rd = 4'b0000;
+	immediateFlag = 1;
 end
 
 endtask
 
 task hlt;
-	
-	haltFlag <= 1;
-	
-	
+//input haltFlag;
+
+begin
+
+if (labelPassFlagIn)
+begin
+	outputPCResetFlag = 1;
+			//n_outputPCResetFlag = 1;
+			//n_labelPassFlagOut = 0;
+			//n_opcode = 6; // dont do this
+			//n_value = 3;
+end
+else
+begin
+	haltFlag = 1;
+
+end
+
+end
 endtask
 
 task tbd;
+begin
 
+end
 endtask
-
 
 endmodule
