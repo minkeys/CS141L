@@ -17,7 +17,9 @@ output reg signFlag,
 output reg[7:0] labelValue,
 output reg haltFlag,
 output reg outputPCResetFlag,
-output reg labelPassFlagOut
+output reg labelPassFlagOut,
+output reg writemem,
+output reg readmem
 );
 
 // create local registers
@@ -83,12 +85,14 @@ begin
 	immediateFlag = 0;
 	signFlag = 0;
 	haltFlag = 0;
+	readmem = 0;
+	writemem = 0;
 	//n_outputPCResetFlag = 0;
 	//n_labelPassFlagOut = 0;
 	
 //reg [7:0]
 	labelValue = 0;
-
+	
 //reg [3:0]
 	rs = 0;
 	rt = 0;
@@ -141,8 +145,8 @@ end
 		4'b0010: add(value, rs, rt, rd, signFlag);
 		4'b0011: bnot(value, rs, rd);
 		4'b0100: band(value, rs, rt, rd);
-		4'b0101: ldr(value, rs, rd);
-		4'b0110: str(value, rs, rd);
+		4'b0101: ldr(value, rs, rd, readmem);
+		4'b0110: str(value, rs, rd, writemem);
 		4'b0111: stl(value, program_counter, rd, labelValue, labelFlag);
 		4'b1000: xOr(value, rs, rt, rd);
 		4'b1001: blt(value, rs, rt, rd, branchFlag);
@@ -326,22 +330,26 @@ endtask
 task ldr;
 input [3:0] value;
 output[3:0] rs, rd;
+output readmem;
 
 begin
 // s0 is offset to load from
 	rs = 4'b0000;
 	rd = value;
+	readmem = 1;
 end
 endtask
 
 task str;
 input [3:0] value;
 output[3:0] rs, rd;
+output writemem;
 
 begin
 // s0 is offset to store to
 	rs = value;
-	rd = 4'b0000;
+	rt = 4'b0000;
+	writemem = 1;
 end
 endtask
 

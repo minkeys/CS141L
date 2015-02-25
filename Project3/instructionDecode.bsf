@@ -21,9 +21,9 @@ agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 288 288)
+	(rect 16 16 288 320)
 	(text "instructionDecode" (rect 5 0 74 12)(font "Arial" ))
-	(text "inst" (rect 8 256 20 268)(font "Arial" ))
+	(text "inst" (rect 8 288 20 300)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -150,7 +150,21 @@ agreement for further details.
 		(text "labelPassFlagOut" (rect 184 219 251 231)(font "Arial" ))
 		(line (pt 272 224)(pt 256 224)(line_width 1))
 	)
+	(port
+		(pt 272 240)
+		(output)
+		(text "writemem" (rect 0 0 38 12)(font "Arial" ))
+		(text "writemem" (rect 213 235 251 247)(font "Arial" ))
+		(line (pt 272 240)(pt 256 240)(line_width 1))
+	)
+	(port
+		(pt 272 256)
+		(output)
+		(text "readmem" (rect 0 0 38 12)(font "Arial" ))
+		(text "readmem" (rect 213 251 251 263)(font "Arial" ))
+		(line (pt 272 256)(pt 256 256)(line_width 1))
+	)
 	(drawing
-		(rectangle (rect 16 16 256 256)(line_width 1))
+		(rectangle (rect 16 16 256 288)(line_width 1))
 	)
 )
