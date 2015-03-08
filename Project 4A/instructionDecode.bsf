@@ -164,6 +164,13 @@ agreement for further details.
 		(text "readmem" (rect 213 251 251 263)(font "Arial" ))
 		(line (pt 272 256)(pt 256 256)(line_width 1))
 	)
+	(port
+		(pt 272 272)
+		(output)
+		(text "regwrite" (rect 0 0 30 12)(font "Arial" ))
+		(text "regwrite" (rect 221 267 251 279)(font "Arial" ))
+		(line (pt 272 272)(pt 256 272)(line_width 1))
+	)
 	(drawing
 		(rectangle (rect 16 16 256 288)(line_width 1))
 	)

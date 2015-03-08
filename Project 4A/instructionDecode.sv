@@ -1,3 +1,4 @@
+// FIX REGWRITE
 module instructionDecode(
 input clk,
 input[7:0] program_counter,
@@ -19,7 +20,8 @@ output reg haltFlag,
 output reg outputPCResetFlag,
 output reg labelPassFlagOut,
 output reg writemem,
-output reg readmem
+output reg readmem,
+output reg regwrite // FIX LOGIC FOR REGWRITE
 );
 
 // create local registers
@@ -87,6 +89,7 @@ begin
 	haltFlag = 0;
 	readmem = 0;
 	writemem = 0;
+	regwrite = 0; // FIX LOGIC FOR REGWRITE
 	//n_outputPCResetFlag = 0;
 	//n_labelPassFlagOut = 0;
 	
