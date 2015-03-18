@@ -1,0 +1,36 @@
+module ALU_M(
+
+input clk,
+input labelValue,
+input labelFlag,
+input writeMemFlag,
+input readMemFlag,
+input [7:0] ALUResult,
+input [7:0] regA,
+input [7:0] regB,
+
+output clkOut,
+output labelValueOut,
+output writeMemFlagOut,
+output readMemFlagOut,
+output ALUResultOut,
+output regAOut,
+output regBOut
+);
+
+
+always @ (posedge clk)
+begin
+
+clkOut = clk;
+labelValueOut = labelValue;
+writeMemFlagOut = writeMemFlag;
+readMemFlagOut = readMemFlag;
+ALUResultOut = ALUResult;
+regAOut = regA;
+regBOut regB;
+
+end
+
+
+endmodule

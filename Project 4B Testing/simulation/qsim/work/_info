@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Minh/Documents/GitHub/CS141L/Project2/simulation/qsim
+vCS141L
+Z0 !s110 1425865291
+!i10b 1
+!s100 81Y7JzZ1zo=dzC?[_k?ne2
+IZ<LcNX5iRhmLCHg>S;>KB3
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+Z2 dC:/Users/Minh/Documents/GitHub/CS141L/Project 4B Testing/simulation/qsim
+w1425865289
+8CS141L.vo
+FCS141L.vo
+L0 32
+Z3 OV;L;10.3c;59
+r1
+!s85 0
+31
+!s108 1425865291.499000
+!s107 CS141L.vo|
+!s90 -work|work|CS141L.vo|
+!i113 1
+Z4 o-work work
+n@c@s141@l
+vCS141L_vlg_check_tst
+R0
+!i10b 1
+!s100 dBneJ[mBO;W=?C@0deXkn2
+IHhO8CnVgCi49HgO]F8Ni23
+R1
+R2
+Z5 w1425865285
+Z6 8Waveform19.vwf.vt
+Z7 FWaveform19.vwf.vt
+L0 66
+R3
+r1
+!s85 0
+31
+Z8 !s108 1425865291.655000
+Z9 !s107 Waveform19.vwf.vt|
+Z10 !s90 -work|work|Waveform19.vwf.vt|
+!i113 1
+R4
+n@c@s141@l_vlg_check_tst
+vCS141L_vlg_sample_tst
+R0
+!i10b 1
+!s100 zcPZW:o=zOReSeRZNm]0M0
+I7YLQMQodG`_Z^dQ4`^nYj2
+R1
+R2
+R5
+R6
+R7
+L0 30
+R3
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R4
+n@c@s141@l_vlg_sample_tst
+vCS141L_vlg_vec_tst
+R0
+!i10b 1
+!s100 mD7aRUPKC_hAcmcTQLQ9;0
+IYY=AO]C_U;D55HAXLBSb=1
+R1
+R2
+R5
+R6
+R7
+L0 1028
+R3
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R4
+n@c@s141@l_vlg_vec_tst

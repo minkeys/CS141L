@@ -1,0 +1,15 @@
+module instructionROM(
+input[7:0]program_counter,
+output[7:0]instruction
+);
+
+
+reg [7:0] mem [255:0]
+
+always @ (posedge clk)
+
+begin
+	instruction <= mem[program_counter];
+end
+
+endmodule

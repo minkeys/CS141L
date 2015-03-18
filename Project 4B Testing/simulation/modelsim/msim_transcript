@@ -1,0 +1,32 @@
+# Reading C:/altera/14.1/modelsim_ase/tcl/vsim/pref.tcl
+# do CS141L_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim PE vmap 10.3c Lib Mapping Utility 2014.09 Sep 20 2014
+# vmap -modelsim_quiet work rtl_work 
+# Copying C:/altera/14.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:/altera/14.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -sv -work work +incdir+C:/Users/Minh/Documents/GitHub/CS141L/Project3 {C:/Users/Minh/Documents/GitHub/CS141L/Project3/regfile32x8.sv}
+# Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+# Start time: 20:17:10 on Feb 17,2015
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/Minh/Documents/GitHub/CS141L/Project3" C:/Users/Minh/Documents/GitHub/CS141L/Project3/regfile32x8.sv 
+# -- Compiling module regfile32x8
+# ** Error: C:/Users/Minh/Documents/GitHub/CS141L/Project3/regfile32x8.sv(20): (vlog-2110) Illegal reference to net "regA".
+# 
+# ** Error: C:/Users/Minh/Documents/GitHub/CS141L/Project3/regfile32x8.sv(21): (vlog-2110) Illegal reference to net "regB".
+# 
+# ** Error: C:/Users/Minh/Documents/GitHub/CS141L/Project3/regfile32x8.sv(33): (vlog-2110) Illegal reference to net "branchAddress".
+# 
+# End time: 20:17:10 on Feb 17,2015, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: C:/altera/14.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./CS141L_run_msim_rtl_verilog.do line 8
+# C:/altera/14.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -sv -work work +incdir+C:/Users/Minh/Documents/GitHub/CS141L/Project3 {C:/Users/Minh/Documents/GitHub/CS141L/Project3/regfile32x8.sv}"
